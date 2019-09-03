@@ -183,6 +183,10 @@ swiftformat . --config .swiftformat --swiftversion 5.0
 
 This will re-format every `*.swift` file inside the project folder to follow the guidelines.
 
+### Continuous Integration
+
+We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`.
+
 ### Roadmap
 
 Although the current implementation does provide what we need, there are several ideas in our minds that we are willing to implement when time allows it. In particular:
