@@ -1,0 +1,32 @@
+default_platform(:ios)
+
+####################################################################################################
+####################################################################################################
+
+##############
+# Test lanes #
+##############
+
+platform :ios do
+	desc "Runs framework's unit tests in the specified device."
+	desc "Usage example: fastlane ios test device:'iPhone 8'"
+	lane :test  do |options| 
+		raise "Missing 'device' parameter. Usage: fastlane ios test device:DEVICE" unless options[:device]
+		scan(
+		    scheme: "MathExpression",
+		    device: options[:device],
+		    clean: true,
+		    disable_concurrent_testing: true
+  		)
+	end
+
+	lane :test_performance  do |options| 
+		raise "Missing 'device' parameter. Usage: fastlane ios test_performance device:DEVICE" unless options[:device]
+		scan(
+		    scheme: "PerformanceTests",
+		    device: options[:device],
+		    clean: true,
+		    disable_concurrent_testing: true
+  		)
+	end
+end
