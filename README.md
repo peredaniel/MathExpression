@@ -31,7 +31,7 @@ To use CocoaPods, first make sure you have installed it and updated it to the la
 1. Add MathExpression to your `Podfile`:
 
 ```ruby
-pod 'MathExpression'
+pod 'MathExpression', '~>1.0.0'
 ```
 
 2. Update your pod sources and install the new pod by executing the following command in command line:
@@ -47,7 +47,7 @@ To use Carthage, first make sure you have installed it and updated it to the lat
 1. Add MathExpression to your `Cartfile`:
 
 ```ruby
-github "peredaniel/MathExpression" ~> 1.0
+github "peredaniel/MathExpression" ~> 1.0.0
 ```
 
 2. Install the new framework by running Carthage:
@@ -60,9 +60,8 @@ $ carthage update
 
 We encourage using either CocoaPods or Carthage to install your dependencies, but in case you can't use any of these dependency managers, you can install the framework manually as follows:
 
-1. Clone or download this repository this repo (for example, add it as a submodule).
-2. Drag the project `MathExpression.xcproj` into Xcode as a subproject of your app project.
-3. Link with MathExpression by adding it in *Linked Frameworks and Libaries*, under the *General* tab in your app's project settings.
+1. Clone or download this repository.
+2. Drag the folder `Source` contained within the `MathExpression` folder into your project.
 
 ## Getting started
 
@@ -158,15 +157,18 @@ In particular, even exponents do not remove the `-` sign, since the algorithm pa
 
 ### Algorithm performance
 
-Both the validation and evaluation algorithms follow a *divide and conquer* approach, and are implemented recursively. That is, both algorithms split the given String intance into smaller instances until either a single numeric value or a non-mathematical expression are obtained (in the latter, the transformation returns the corresponding value). In addition, the validation algorithm iterates a couple of times over the whole String instance.
+Both the validation and evaluation algorithms follow a *divide and conquer* approach, and are implemented recursively. That is, both algorithms split the given String intance into smaller instances until either a single numeric value or a non-mathematical expression are obtained (in the latter, the transformation returns the corresponding value). In addition, the validation algorithm iterates once over the whole String instance to ensure that no invalid consecutive operators are presentñ.
 
 Therefore, if the String instance with the mathematical expression has length `n`, the complexity of both algorithms is the following:
-* Validation: `O(1) + O(n) + O(n) + O(n * log(n)) = O(n * log(n))`
+* Validation: `O(1) + O(n) + O(n * log(n)) = O(n * log(n))`
 * Evaluation: `O(n * log(n))`
 
 Bear in mind that this analysis **does not** take into account the transformation that may be passed as a parameter. A complex transformation may increase the complexity of the evaluation algorithm.
 
-The project includes a `performance` version of every unit test (with the exception of the `ExponentialTransformationTests`, whose purpose is different) which can be run independently by running the scheme `PerformanceTests`.
+The project includes a `performance` version of every unit test (excep for the `ExponentialTransformationTests`, whose purpose is different) which can be run independently by running the scheme `PerformanceTests`. In addition, there exists a class `StressPerformanceTests` to catch any performance edge cases in both the validation and evaluation algorithms. At the present time, this class includes the following stress tests:
+* A mathematical expression consisting of 500 concatenated parentheses pairs with a single value at the center. Result is less than 0.4 seconds in average to validate and evaluate.
+* A mathematical expression involving a concatenation of 501 expressions of the type `(a + b * c)`, where `c` is another expression of the type `(a + b * c)`, and so on. Taking 3 expressions, the final result would be `(a + b * (c + d * (e + f * (g + h))))`. Result is around 1.1 seconds in average to validate and evaluate.
+* A randomly generated mathematical expression constructed combining 500 random expressions from a pre-selected subset of the `Formulae` enum. Result is around 5 seconds in average to validate and evaluate.
 
 ## Contributing
 

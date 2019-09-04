@@ -85,7 +85,7 @@ class ExponentialTransformationTests: XCTestCase {
     // MARK: - Non-satisfied idendities
 
     func testNegativeBaseWithEvenExponentGivesWrongResult() {
-        let a = Int16.random(in: -20...0)
+        let a = Int16.random(in: -20...0) - 1
         let b = Int16.randomEven(in: 1...6)
 
         let expression = try! MathExpression("\(a)^\(b)", transformation: transformation)

@@ -94,7 +94,7 @@ extension MathFormula {
     }
 
     func evaluatingExpression(between bracket: MathBrackets) -> MathExpression {
-        guard let stringWithBrackets = getString(between: bracket) else {
+        guard let stringWithBrackets = try? getString(between: bracket) else {
             return MathExpression(validString: string, transformation: transformation)
         }
 
@@ -113,11 +113,11 @@ extension MathFormula {
 
 private extension MathFormula {
     func containsBracket(_ bracket: MathBrackets) -> Bool {
-        return string.contains(bracket.opening)
+        return string.contains(bracket.opening) || string.contains(bracket.closing)
     }
 
-    func getString(between bracket: MathBrackets) -> String? {
-        return String(string.map { $0 }.characters(between: bracket))
+    func getString(between bracket: MathBrackets) throws -> String? {
+        return try String(string.map { $0 }.characters(between: bracket))
     }
 
     func starts(with mathOperator: MathOperator) -> Bool {
@@ -129,7 +129,6 @@ private extension MathFormula {
             throw MathExpression.ValidationError.emptyExpression
         }
 
-        try string.filter { MathBrackets.parenthesis.brackets.contains($0) }.validateBracketsPlacementAndNumber()
         try string.validateStartingAndEndingCharacters()
         try string.validateNoInvalidConsecutiveOperators()
 
@@ -144,15 +143,15 @@ private extension MathFormula {
                 _ = try MathFormula(symbol.neutralElement + string, transformation: transformation)
             }
         case .containsBracket(let brackets):
-            guard let stringWithBrackets = getString(between: brackets) else {
+            guard let stringWithBrackets = try getString(between: brackets) else {
                 return
             }
-            let value = try MathExpression(
+            _ = try MathFormula(
                 String(stringWithBrackets.dropFirst().dropLast()),
                 transformation: transformation
-            ).evaluate().avoidScientificNotation()
+            )
             _ = try MathFormula(
-                string.replacingOccurrences(of: stringWithBrackets, with: value),
+                string.replacingOccurrences(of: stringWithBrackets, with: "0"),
                 transformation: transformation
             )
 
@@ -198,41 +197,15 @@ private extension String {
 }
 
 private extension Array where Element == String.Element {
-    func characters(
-        between brackets: MathBrackets,
-        _ characters: [Character] = [],
-        _ balance: Int = 0
-    ) -> [Character] {
-        if characters.isEmpty, let firstIndex = firstIndex(of: Character(brackets.opening)) {
-            return Array(dropFirst(firstIndex + 1)).characters(between: brackets, [Character(brackets.opening)], 1)
-        }
-
-        if balance == 0 {
-            return characters
-        }
-
-        guard let first = first else { return [] }
-        let newCharacters = characters + [first]
-        if first == Character(brackets.opening) {
-            return Array(dropFirst()).characters(between: brackets, newCharacters, balance + 1)
-        } else if first == Character(brackets.closing) {
-            return Array(dropFirst()).characters(between: brackets, newCharacters, balance - 1)
-        } else {
-            return Array(dropFirst()).characters(between: brackets, newCharacters, balance)
-        }
-    }
-
-    func validateBracketsPlacementAndNumber(_ accumulate: Int = 0) throws {
-        if isEmpty, accumulate != 0 {
+    func characters(between brackets: MathBrackets) throws -> [Character] {
+        guard let initialIndex = lastIndex(of: Character(brackets.opening)) else {
             throw MathExpression.ValidationError.unevenOpeningClosingBracketNumber
-        } else if accumulate > 0 {
+        }
+
+        guard let finalIndex = self[initialIndex..<count].firstIndex(of: Character(brackets.closing)) else {
             throw MathExpression.ValidationError.misplacedBrackets
         }
 
-        if last == Character(MathBrackets.parenthesis.closing) {
-            try Array(dropLast()).validateBracketsPlacementAndNumber(accumulate - 1)
-        } else if last == Character(MathBrackets.parenthesis.opening) {
-            try Array(dropLast()).validateBracketsPlacementAndNumber(accumulate + 1)
-        }
+        return Array(self[initialIndex...finalIndex])
     }
 }
