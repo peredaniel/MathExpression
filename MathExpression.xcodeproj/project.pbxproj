@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9F12B9E8231FBDFC004B079A /* StressPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BB417231FA9CA0041F874 /* StressPerformanceTests.swift */; };
+		9F12B9EC231FDFF6004B079A /* RandomExpressionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B9E9231FC83E004B079A /* RandomExpressionGenerator.swift */; };
+		9F12B9ED231FDFFE004B079A /* RandomExpressionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B9E9231FC83E004B079A /* RandomExpressionGenerator.swift */; };
+		9F12B9EE231FDFFE004B079A /* Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1BE38023184B9400DE0E5F /* Formulae.swift */; };
+		9F12B9EF231FDFFE004B079A /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D012316718E009CEB51 /* Operation.swift */; };
+		9F12B9F0231FE002004B079A /* Numeric+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47DA2316D91800F237A4 /* Numeric+Random.swift */; };
+		9F12B9F1231FE002004B079A /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2158092319D25C00E5FF81 /* String+Random.swift */; };
 		9F153DA6231E87A4005A6966 /* MathExpression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1A2CE123166BAF009CEB51 /* MathExpression.framework */; };
-		9F153DC6231E87D6005A6966 /* Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DAD231E87D6005A6966 /* Formulae.swift */; };
-		9F153DC8231E87D6005A6966 /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB0231E87D6005A6966 /* String+Random.swift */; };
-		9F153DC9231E87D6005A6966 /* Numeric+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB1231E87D6005A6966 /* Numeric+Random.swift */; };
 		9F153DCA231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB4231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift */; };
 		9F153DCB231E87D6005A6966 /* FieldAxiomPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB5231E87D6005A6966 /* FieldAxiomPerformanceTests.swift */; };
 		9F153DCC231E87D6005A6966 /* ProductAndDivisionPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB7231E87D6005A6966 /* ProductAndDivisionPerformanceTests.swift */; };
@@ -73,11 +76,9 @@
 
 /* Begin PBXFileReference section */
 		9F0BB417231FA9CA0041F874 /* StressPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StressPerformanceTests.swift; sourceTree = "<group>"; };
+		9F12B9E9231FC83E004B079A /* RandomExpressionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExpressionGenerator.swift; sourceTree = "<group>"; };
 		9F153DA1231E87A4005A6966 /* MathExpressionPerformanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathExpressionPerformanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F153DA5231E87A4005A6966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F153DAD231E87D6005A6966 /* Formulae.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formulae.swift; sourceTree = "<group>"; };
-		9F153DB0231E87D6005A6966 /* String+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Random.swift"; sourceTree = "<group>"; };
-		9F153DB1231E87D6005A6966 /* Numeric+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Numeric+Random.swift"; sourceTree = "<group>"; };
 		9F153DB4231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedOperationsPerformanceTest.swift; sourceTree = "<group>"; };
 		9F153DB5231E87D6005A6966 /* FieldAxiomPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldAxiomPerformanceTests.swift; sourceTree = "<group>"; };
 		9F153DB7231E87D6005A6966 /* ProductAndDivisionPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAndDivisionPerformanceTests.swift; sourceTree = "<group>"; };
@@ -158,32 +159,22 @@
 			path = "Stress tests";
 			sourceTree = "<group>";
 		};
+		9F12B9EB231FDFDB004B079A /* MathExpressionTestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				9FFC47D42316C60900F237A4 /* Helpers */,
+				9F49C8752317224900F30D74 /* Extensions */,
+			);
+			path = MathExpressionTestHelpers;
+			sourceTree = "<group>";
+		};
 		9F153DA2231E87A4005A6966 /* MathExpressionPerformanceTests */ = {
 			isa = PBXGroup;
 			children = (
-				9F153DAF231E87D6005A6966 /* Extensions */,
-				9F153DAC231E87D6005A6966 /* Helpers */,
 				9F153DB2231E87D6005A6966 /* Source */,
 				9F153DA5231E87A4005A6966 /* Info.plist */,
 			);
 			path = MathExpressionPerformanceTests;
-			sourceTree = "<group>";
-		};
-		9F153DAC231E87D6005A6966 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				9F153DAD231E87D6005A6966 /* Formulae.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		9F153DAF231E87D6005A6966 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9F153DB0231E87D6005A6966 /* String+Random.swift */,
-				9F153DB1231E87D6005A6966 /* Numeric+Random.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9F153DB2231E87D6005A6966 /* Source */ = {
@@ -269,8 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				9F1A2CE323166BAF009CEB51 /* MathExpression */,
-				9F1A2CEE23166BAF009CEB51 /* MathExpressionTests */,
 				9F153DA2231E87A4005A6966 /* MathExpressionPerformanceTests */,
+				9F1A2CEE23166BAF009CEB51 /* MathExpressionTests */,
+				9F12B9EB231FDFDB004B079A /* MathExpressionTestHelpers */,
 				9F1A2CE223166BAF009CEB51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -298,8 +290,6 @@
 		9F1A2CEE23166BAF009CEB51 /* MathExpressionTests */ = {
 			isa = PBXGroup;
 			children = (
-				9F49C8752317224900F30D74 /* Extensions */,
-				9FFC47D42316C60900F237A4 /* Helpers */,
 				9F1A443B2318007E0088A9D5 /* Source */,
 				9F1A2CF123166BAF009CEB51 /* Info.plist */,
 			);
@@ -401,6 +391,7 @@
 			children = (
 				9F1BE38023184B9400DE0E5F /* Formulae.swift */,
 				9F1A2D012316718E009CEB51 /* Operation.swift */,
+				9F12B9E9231FC83E004B079A /* RandomExpressionGenerator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -546,19 +537,21 @@
 				9F153DD0231E87D6005A6966 /* ValidationPerformanceTests.swift in Sources */,
 				9F12B9E8231FBDFC004B079A /* StressPerformanceTests.swift in Sources */,
 				9F153DCA231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift in Sources */,
+				9F12B9EF231FDFFE004B079A /* Operation.swift in Sources */,
 				9F153DD2231E87D6005A6966 /* AbelianAdditiveGroupAxiomsPerformanceTests.swift in Sources */,
 				9F153DCD231E87D6005A6966 /* ProductPerformanceTests.swift in Sources */,
 				9F153DD7231E87D6005A6966 /* CountTransformationPerformanceTests.swift in Sources */,
 				9F153DD4231E87D6005A6966 /* AdditionPerformanceTests.swift in Sources */,
 				9F153DCB231E87D6005A6966 /* FieldAxiomPerformanceTests.swift in Sources */,
-				9F153DC8231E87D6005A6966 /* String+Random.swift in Sources */,
-				9F153DC6231E87D6005A6966 /* Formulae.swift in Sources */,
+				9F12B9EE231FDFFE004B079A /* Formulae.swift in Sources */,
 				9F153DD1231E87D6005A6966 /* SubtractionPerformanceTests.swift in Sources */,
 				9F153DCC231E87D6005A6966 /* ProductAndDivisionPerformanceTests.swift in Sources */,
+				9F12B9ED231FDFFE004B079A /* RandomExpressionGenerator.swift in Sources */,
 				9F153DCE231E87D6005A6966 /* DivisionPerformanceTests.swift in Sources */,
 				9F153DCF231E87D6005A6966 /* AbelianMultiplicativeGroupAxiomTests.swift in Sources */,
+				9F12B9F0231FE002004B079A /* Numeric+Random.swift in Sources */,
 				9F153DD5231E87D6005A6966 /* FactorialTransformationPerformanceTests.swift in Sources */,
-				9F153DC9231E87D6005A6966 /* Numeric+Random.swift in Sources */,
+				9F12B9F1231FE002004B079A /* String+Random.swift in Sources */,
 				9F153DD3231E87D6005A6966 /* AdditionAndSubtractionPerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +584,7 @@
 				9F304D2E23197A8300CE4805 /* CombinedOperationsTest.swift in Sources */,
 				9FFC47D92316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift in Sources */,
 				9F8F90102317370600711821 /* FieldAxiomTests.swift in Sources */,
+				9F12B9EC231FDFF6004B079A /* RandomExpressionGenerator.swift in Sources */,
 				9F304D2C23196E5600CE4805 /* ProductAndDivisionTests.swift in Sources */,
 				9F21580C2319D31300E5FF81 /* ExponentialTransformationTests.swift in Sources */,
 				9F304D282319645500CE4805 /* DivisionTests.swift in Sources */,
