@@ -1,6 +1,7 @@
 # MathExpression framework
 
 [![Build Status](https://travis-ci.com/peredaniel/MathExpression.svg?branch=master)](https://travis-ci.com/peredaniel/MathExpression)
+[![Coverage Status](https://coveralls.io/repos/github/peredaniel/MathExpression/badge.svg?branch=master)](https://coveralls.io/github/peredaniel/MathExpression?branch=master)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MathExpression.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/github/license/peredaniel/MathExpression)](https://github.com/peredaniel/MathExpression/blob/master/LICENSE)
