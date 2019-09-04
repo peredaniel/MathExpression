@@ -17,3 +17,5 @@ jobs:
 stages:
 - name: test
   if: (type = pull_request OR type = push) AND branch = master
+
+after_success: bundle exec slather

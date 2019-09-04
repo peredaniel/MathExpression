@@ -1,0 +1,8 @@
+coverage_service: coveralls
+xcodeproj: MathExpression.xcodeproj
+scheme: MathExpression
+source_directory: MathExpression/*
+ignore:
+  - MathExpressionPerformanceTests/*
+  - MathExpressionTestHelpers/*
+  - MathExpressionTests/*
