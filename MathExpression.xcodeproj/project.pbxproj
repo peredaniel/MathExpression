@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F12B9E8231FBDFC004B079A /* StressPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BB417231FA9CA0041F874 /* StressPerformanceTests.swift */; };
 		9F153DA6231E87A4005A6966 /* MathExpression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1A2CE123166BAF009CEB51 /* MathExpression.framework */; };
 		9F153DC6231E87D6005A6966 /* Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DAD231E87D6005A6966 /* Formulae.swift */; };
 		9F153DC8231E87D6005A6966 /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F153DB0231E87D6005A6966 /* String+Random.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F0BB417231FA9CA0041F874 /* StressPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StressPerformanceTests.swift; sourceTree = "<group>"; };
 		9F153DA1231E87A4005A6966 /* MathExpressionPerformanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathExpressionPerformanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F153DA5231E87A4005A6966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F153DAD231E87D6005A6966 /* Formulae.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formulae.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F0BB416231FA9C50041F874 /* Stress tests */ = {
+			isa = PBXGroup;
+			children = (
+				9F0BB417231FA9CA0041F874 /* StressPerformanceTests.swift */,
+			);
+			path = "Stress tests";
+			sourceTree = "<group>";
+		};
 		9F153DA2231E87A4005A6966 /* MathExpressionPerformanceTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +191,10 @@
 			children = (
 				9F153DB6231E87D6005A6966 /* (Q - {0}, *) group tests */,
 				9F153DB3231E87D6005A6966 /* (Q, +, *) field tests */,
-				9F153DBB231E87D6005A6966 /* Validation tests */,
 				9F153DBD231E87D6005A6966 /* (Q, +) group tests */,
 				9F153DC2231E87D6005A6966 /* Non-trivial transformation tests */,
+				9F0BB416231FA9C50041F874 /* Stress tests */,
+				9F153DBB231E87D6005A6966 /* Validation tests */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -533,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F153DD0231E87D6005A6966 /* ValidationPerformanceTests.swift in Sources */,
+				9F12B9E8231FBDFC004B079A /* StressPerformanceTests.swift in Sources */,
 				9F153DCA231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift in Sources */,
 				9F153DD2231E87D6005A6966 /* AbelianAdditiveGroupAxiomsPerformanceTests.swift in Sources */,
 				9F153DCD231E87D6005A6966 /* ProductPerformanceTests.swift in Sources */,
