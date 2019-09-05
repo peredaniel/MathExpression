@@ -15,6 +15,18 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
+### build
+```
+fastlane build
+```
+Builds the framework for the specified platform (either 'iOS', 'tvOS' or 'macOS').
+
+This lane is to make sure that all platforms build correctly and there are no breaking changes. No tests are executed.
+
+Usage example: fastlane ios test device:'iPhone 8'
+
+----
+
 ## iOS
 ### ios test
 ```
