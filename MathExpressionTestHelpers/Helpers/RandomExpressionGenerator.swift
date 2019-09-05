@@ -4,7 +4,6 @@ import Foundation
 @testable import MathExpression
 
 class RandomExpressionGenerator {
-
     let inputs: [String: Int] = [
         Formula.AdditionTests.simpleAddition: 2,
         Formula.AdditionTests.complicatedAddition: 4,

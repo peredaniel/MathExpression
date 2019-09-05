@@ -14,8 +14,4 @@ enum MathBrackets: CaseIterable {
         case .parenthesis: return ")"
         }
     }
-
-    var brackets: [Character] {
-        return [Character(opening), Character(closing)]
-    }
 }
