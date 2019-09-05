@@ -51,6 +51,14 @@
 		9F304D2C23196E5600CE4805 /* ProductAndDivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2B23196E5600CE4805 /* ProductAndDivisionTests.swift */; };
 		9F304D2E23197A8300CE4805 /* CombinedOperationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2D23197A8300CE4805 /* CombinedOperationsTest.swift */; };
 		9F8F90102317370600711821 /* FieldAxiomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8F900F2317370600711821 /* FieldAxiomTests.swift */; };
+		9FF96DA02321399200FC90CA /* MathExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1A2CE423166BAF009CEB51 /* MathExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FF96DA22321399200FC90CA /* MathFormula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D052316789B009CEB51 /* MathFormula.swift */; };
+		9FF96DA32321399200FC90CA /* MathBrackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A442D2317BB830088A9D5 /* MathBrackets.swift */; };
+		9FF96DA42321399200FC90CA /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0A231685AF009CEB51 /* FloatingPoint+Extensions.swift */; };
+		9FF96DA52321399200FC90CA /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
+		9FF96DA62321399200FC90CA /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A44302317D74A0088A9D5 /* Formatter+Extensions.swift */; };
+		9FF96DA72321399200FC90CA /* MathExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2CFC23166C34009CEB51 /* MathExpression.swift */; };
+		9FF96DA82321399200FC90CA /* MathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0323167848009CEB51 /* MathOperator.swift */; };
 		9FFC47D12316C56400F237A4 /* AdditionAndSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D02316C56400F237A4 /* AdditionAndSubtractionTests.swift */; };
 		9FFC47D32316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D22316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift */; };
 		9FFC47D92316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D82316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift */; };
@@ -118,6 +126,7 @@
 		9F304D2B23196E5600CE4805 /* ProductAndDivisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAndDivisionTests.swift; sourceTree = "<group>"; };
 		9F304D2D23197A8300CE4805 /* CombinedOperationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedOperationsTest.swift; sourceTree = "<group>"; };
 		9F8F900F2317370600711821 /* FieldAxiomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAxiomTests.swift; sourceTree = "<group>"; };
+		9FF96DAE2321399200FC90CA /* MathExpression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MathExpression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FFC47D02316C56400F237A4 /* AdditionAndSubtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAndSubtractionTests.swift; sourceTree = "<group>"; };
 		9FFC47D22316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbelianAdditiveGroupAxiomsTests.swift; sourceTree = "<group>"; };
 		9FFC47D82316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbelianMultiplicativeGroupAxiomTests.swift; sourceTree = "<group>"; };
@@ -145,6 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1A2CEB23166BAF009CEB51 /* MathExpression.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF96DA92321399200FC90CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +289,7 @@
 				9F1A2CE123166BAF009CEB51 /* MathExpression.framework */,
 				9F1A2CEA23166BAF009CEB51 /* MathExpressionTests.xctest */,
 				9F153DA1231E87A4005A6966 /* MathExpressionPerformanceTests.xctest */,
+				9FF96DAE2321399200FC90CA /* MathExpression.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -407,6 +424,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FF96D9F2321399200FC90CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF96DA02321399200FC90CA /* MathExpression.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -428,9 +453,9 @@
 			productReference = 9F153DA1231E87A4005A6966 /* MathExpressionPerformanceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9F1A2CE023166BAF009CEB51 /* MathExpression */ = {
+		9F1A2CE023166BAF009CEB51 /* MathExpression-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F1A2CF523166BAF009CEB51 /* Build configuration list for PBXNativeTarget "MathExpression" */;
+			buildConfigurationList = 9F1A2CF523166BAF009CEB51 /* Build configuration list for PBXNativeTarget "MathExpression-iOS" */;
 			buildPhases = (
 				9F1A2CDC23166BAF009CEB51 /* Headers */,
 				9F1A2CDD23166BAF009CEB51 /* Sources */,
@@ -441,7 +466,7 @@
 			);
 			dependencies = (
 			);
-			name = MathExpression;
+			name = "MathExpression-iOS";
 			productName = MathExpression;
 			productReference = 9F1A2CE123166BAF009CEB51 /* MathExpression.framework */;
 			productType = "com.apple.product-type.framework";
@@ -463,6 +488,24 @@
 			productName = MathExpressionTests;
 			productReference = 9F1A2CEA23166BAF009CEB51 /* MathExpressionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9FF96D9E2321399200FC90CA /* MathExpression-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FF96DAB2321399200FC90CA /* Build configuration list for PBXNativeTarget "MathExpression-tvOS" */;
+			buildPhases = (
+				9FF96D9F2321399200FC90CA /* Headers */,
+				9FF96DA12321399200FC90CA /* Sources */,
+				9FF96DA92321399200FC90CA /* Frameworks */,
+				9FF96DAA2321399200FC90CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MathExpression-tvOS";
+			productName = MathExpression;
+			productReference = 9FF96DAE2321399200FC90CA /* MathExpression.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -498,7 +541,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9F1A2CE023166BAF009CEB51 /* MathExpression */,
+				9F1A2CE023166BAF009CEB51 /* MathExpression-iOS */,
+				9FF96D9E2321399200FC90CA /* MathExpression-tvOS */,
 				9F1A2CE923166BAF009CEB51 /* MathExpressionTests */,
 				9F153DA0231E87A4005A6966 /* MathExpressionPerformanceTests */,
 			);
@@ -521,6 +565,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9F1A2CE823166BAF009CEB51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF96DAA2321399200FC90CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,17 +647,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FF96DA12321399200FC90CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FF96DA22321399200FC90CA /* MathFormula.swift in Sources */,
+				9FF96DA32321399200FC90CA /* MathBrackets.swift in Sources */,
+				9FF96DA42321399200FC90CA /* FloatingPoint+Extensions.swift in Sources */,
+				9FF96DA52321399200FC90CA /* Double+RoundedToPlaces.swift in Sources */,
+				9FF96DA62321399200FC90CA /* Formatter+Extensions.swift in Sources */,
+				9FF96DA72321399200FC90CA /* MathExpression.swift in Sources */,
+				9FF96DA82321399200FC90CA /* MathOperator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		9F153DA8231E87A4005A6966 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9F1A2CE023166BAF009CEB51 /* MathExpression */;
+			target = 9F1A2CE023166BAF009CEB51 /* MathExpression-iOS */;
 			targetProxy = 9F153DA7231E87A4005A6966 /* PBXContainerItemProxy */;
 		};
 		9F1A2CED23166BAF009CEB51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9F1A2CE023166BAF009CEB51 /* MathExpression */;
+			target = 9F1A2CE023166BAF009CEB51 /* MathExpression-iOS */;
 			targetProxy = 9F1A2CEC23166BAF009CEB51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -787,7 +852,8 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prietomartinez.MathExpression;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = MathExpression;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -814,7 +880,8 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.prietomartinez.MathExpression;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = MathExpression;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -857,6 +924,65 @@
 			};
 			name = Release;
 		};
+		9FF96DAC2321399200FC90CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MathExpression/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prietomartinez.MathExpression;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = MathExpression;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		9FF96DAD2321399200FC90CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MathExpression/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prietomartinez.MathExpression;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = MathExpression;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -878,7 +1004,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F1A2CF523166BAF009CEB51 /* Build configuration list for PBXNativeTarget "MathExpression" */ = {
+		9F1A2CF523166BAF009CEB51 /* Build configuration list for PBXNativeTarget "MathExpression-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F1A2CF623166BAF009CEB51 /* Debug */,
@@ -892,6 +1018,15 @@
 			buildConfigurations = (
 				9F1A2CF923166BAF009CEB51 /* Debug */,
 				9F1A2CFA23166BAF009CEB51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FF96DAB2321399200FC90CA /* Build configuration list for PBXNativeTarget "MathExpression-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FF96DAC2321399200FC90CA /* Debug */,
+				9FF96DAD2321399200FC90CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

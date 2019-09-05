@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F1A2CE023166BAF009CEB51"
+               BlueprintIdentifier = "9FF96D9E2321399200FC90CA"
                BuildableName = "MathExpression.framework"
-               BlueprintName = "MathExpression"
+               BlueprintName = "MathExpression-tvOS"
                ReferencedContainer = "container:MathExpression.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F1A2CE023166BAF009CEB51"
+            BlueprintIdentifier = "9FF96D9E2321399200FC90CA"
             BuildableName = "MathExpression.framework"
-            BlueprintName = "MathExpression"
+            BlueprintName = "MathExpression-tvOS"
             ReferencedContainer = "container:MathExpression.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F1A2CE023166BAF009CEB51"
+            BlueprintIdentifier = "9FF96D9E2321399200FC90CA"
             BuildableName = "MathExpression.framework"
-            BlueprintName = "MathExpression"
+            BlueprintName = "MathExpression-tvOS"
             ReferencedContainer = "container:MathExpression.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F1A2CE023166BAF009CEB51"
+            BlueprintIdentifier = "9FF96D9E2321399200FC90CA"
             BuildableName = "MathExpression.framework"
-            BlueprintName = "MathExpression"
+            BlueprintName = "MathExpression-tvOS"
             ReferencedContainer = "container:MathExpression.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

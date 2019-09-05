@@ -8,8 +8,11 @@ Pod::Spec.new do |spec|
   spec.authors      = { 'Pere Daniel Prieto' => 'math.pedro.daniel.prieto@gmail.com' }
   spec.source       = { :git => 'https://github.com/peredaniel/MathExpression.git', :tag => spec.version }
 
+  spec.platform = :ios, :tvos
   spec.ios.deployment_target  = '10.0'
+  spec.tvos.deployment_target  = '10.0'
   spec.swift_version = "5.0"
 
   spec.ios.source_files = ['MathExpression/**/*.{h,m,swift}']
+  spec.tvos.source_files = ['MathExpression/**/*.{h,m,swift}']
 end
