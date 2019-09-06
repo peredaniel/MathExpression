@@ -1,21 +1,35 @@
 language: swift
 osx_image: xcode10.3
 
-install:
-  - bundle install --without=documentation
+cache: bundler
 
 jobs:
   include:
+  - stage: build
+    name: "Building iOS"
+    script: bundle exec fastlane build platform:'iOS'
+
+  - stage: build
+    name: "Building tvOS"
+    script: bundle exec fastlane build platform:'tvOS'
+
+  - stage: build
+    name: "Building macOS"
+    script: bundle exec fastlane build platform:'iOS'
+
   - stage: test
     name: "Running tests"
     script: bundle exec fastlane ios test device:'iPhone 8'
+    after_success: bundle exec slather
 
   - stage: test
     name: "Running performance tests"
     script: bundle exec fastlane ios test_performance device:'iPhone 8'
+    after_success: bundle exec slather
 
 stages:
-- name: test
+- name: build
   if: (type = pull_request OR type = push) AND branch = master
 
-after_success: bundle exec slather
+- name: test
+  if: (type = pull_request OR type = push) AND branch = master

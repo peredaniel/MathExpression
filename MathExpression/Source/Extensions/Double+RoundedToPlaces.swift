@@ -1,5 +1,7 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
+import Foundation
+
 public extension Double {
     func rounded(
         toPlaces places: Int,

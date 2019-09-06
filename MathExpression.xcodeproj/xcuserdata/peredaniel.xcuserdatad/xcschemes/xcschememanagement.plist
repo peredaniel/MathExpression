@@ -4,20 +4,50 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MathExpression.xcscheme_^#shared#^_</key>
+		<key>MathExpression-iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>PerformanceTests.xcscheme_^#shared#^_</key>
+		<key>MathExpression-macOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>MathExpression-tvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>PerformanceTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>9F153DA0231E87A4005A6966</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1A2CE023166BAF009CEB51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1A2CE923166BAF009CEB51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FF96D9E2321399200FC90CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FF96DB023214AAF00FC90CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

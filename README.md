@@ -9,15 +9,17 @@
 [![Language: Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg)](https://swift.org/)
 [![Language: Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg)](https://swift.org/)
 
-MathExpression is a Swift library that provides an API to parse and evaluate arithmetic mathematical expressions given by a `String` instance.
+MathExpression is a Swift library that provides an API to parse and evaluate arithmetic mathematical expressions given by a `String` instance. It is compatible with iOS, tvOS and macOS.
 
 Furthermore, the initializer admits an additional optional parameter called `transformation`, which is a block taking a `String` instance and returning a `Double`. This provides a great deal of flexibility when creating custom expression, since we can pass in non-numerical strings that can be evaluated using the transformation.
 
 ## Requirements
 
-| Version | Requirements                           |
-|:--------|:---------------------------------------|
-| 1.0.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+ |
+| Version | Requirements            						                 |
+|:--------|:-----------------------------------------------------------------|
+| 1.1.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+, tvOS 10.0+, macOS 10.10+ |
+| 1.0.1   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
+| 1.0.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
 
 The framework is written using **Swift 5.0**, but there is no code specific to that Swift version. Therefore, it should work with projects using Swift 4.2.
 
@@ -32,7 +34,7 @@ To use CocoaPods, first make sure you have installed it and updated it to the la
 1. Add MathExpression to your `Podfile`:
 
 ```ruby
-pod 'MathExpression', '~>1.0.0'
+pod 'MathExpression', '~>1.1.0'
 ```
 
 2. Update your pod sources and install the new pod by executing the following command in command line:
@@ -48,7 +50,7 @@ To use Carthage, first make sure you have installed it and updated it to the lat
 1. Add MathExpression to your `Cartfile`:
 
 ```ruby
-github "peredaniel/MathExpression" ~> 1.0.0
+github "peredaniel/MathExpression" ~> 1.1.0
 ```
 
 2. Install the new framework by running Carthage:
@@ -158,7 +160,7 @@ In particular, even exponents do not remove the `-` sign, since the algorithm pa
 
 ### Algorithm performance
 
-Both the validation and evaluation algorithms follow a *divide and conquer* approach, and are implemented recursively. That is, both algorithms split the given String intance into smaller instances until either a single numeric value or a non-mathematical expression are obtained (in the latter, the transformation returns the corresponding value). In addition, the validation algorithm iterates once over the whole String instance to ensure that no invalid consecutive operators are presentñ.
+Both the validation and evaluation algorithms follow a *divide and conquer* approach, and are implemented recursively. That is, both algorithms split the given String intance into smaller instances until either a single numeric value or a non-mathematical expression are obtained (in the latter, the transformation returns the corresponding value). In addition, the validation algorithm iterates once over the whole String instance to ensure that no invalid consecutive operators are present.
 
 Therefore, if the String instance with the mathematical expression has length `n`, the complexity of both algorithms is the following:
 * Validation: `O(1) + O(n) + O(n * log(n)) = O(n * log(n))`
@@ -196,7 +198,6 @@ Although the current implementation does provide what we need, there are several
 * Add a `priority` property to operators (public, non-modifiable) and transformations (modifiable), so that they are executed in the order that we really need.
 * Add some additional mathematical operators, such as `^` (for exponentiation), and maybe some functions such as trigonometric functions.
 * Add a simple example app with a text field and a couple of labels to input a mathematical expression and compute the value or return the error in case the expression is non-valid.
-* Add support for platforms other than iOS (mainly macOS and tvOS).
 * Add support for [Swift Package Manager](https://swift.org/package-manager/).
 
 ## Similar frameworks

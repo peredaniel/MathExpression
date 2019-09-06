@@ -10,17 +10,17 @@ default_platform(:ios)
 platform :ios do
 	desc "Runs framework's unit tests in the specified device."
 	desc "Usage example: fastlane ios test device:'iPhone 8'"
-	lane :test  do |options| 
+	lane :test do |options| 
 		raise "Missing 'device' parameter. Usage: fastlane ios test device:DEVICE" unless options[:device]
 		scan(
-		    scheme: "MathExpression",
+		    scheme: "MathExpression-iOS",
 		    device: options[:device],
 		    clean: true,
 		    disable_concurrent_testing: true
   		)
 	end
 
-	lane :test_performance  do |options| 
+	lane :test_performance do |options| 
 		raise "Missing 'device' parameter. Usage: fastlane ios test_performance device:DEVICE" unless options[:device]
 		scan(
 		    scheme: "PerformanceTests",
@@ -29,4 +29,21 @@ platform :ios do
 		    disable_concurrent_testing: true
   		)
 	end
+end
+
+
+###############
+# Build lanes #
+###############
+
+desc "Builds the framework for the specified platform (either 'iOS', 'tvOS' or 'macOS')."
+desc "This lane is to make sure that all platforms build correctly and there are no breaking changes. No tests are executed."
+desc "Usage example: fastlane ios test device:'iPhone 8'"
+lane :build do |options|
+	raise "Missing 'platform' parameter. Usage: fastlane build platform:PLATFORM" unless options[:platform]
+	platform = options[:platform]
+	xcbuild(
+		scheme: "MathExpression-" + "#{platform}",
+		clean: true
+	)
 end

@@ -1,5 +1,7 @@
 //  Copyright © 2019 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
+import Foundation
+
 extension FloatingPoint {
     var inverse: Self {
         return type(of: self).init(1) / self
