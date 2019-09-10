@@ -16,8 +16,7 @@ fi
 # Define send message function. parse_mode can be changed to
 # HTML, depending on how you want to format your message:
 send_msg () {
-    curl -s -X POST ${BOT_URL} -d chat_id=$TELEGRAM_CHAT_ID \
-        -d text="$1" -d parse_mode=${PARSE_MODE}
+    curl -s -X POST ${BOT_URL} -d chat_id=$TELEGRAM_CHAT_ID -d text="$1" -d parse_mode=${PARSE_MODE}
 }
 
 # Send message to the bot with some pertinent details about the job
@@ -27,9 +26,10 @@ send_msg "
 -------------------------------------
 Travis build *${build_status}!*
 \`Repository:  ${TRAVIS_REPO_SLUG}\`
+\`Build type:  ${TRAVIS_EVENT_TYPE}\`
 \`Branch:      ${TRAVIS_BRANCH}\`
-*Commit Msg:*
-${TRAVIS_COMMIT_MESSAGE}
+\`Origin:      ${TRAVIS_PULL_REQUEST_BRANCH}\`
+\`Stage:       ${TRAVIS_BUILD_STAGE_NAME}\`
 [Job Log here](${TRAVIS_JOB_WEB_URL})
 --------------------------------------
 "
