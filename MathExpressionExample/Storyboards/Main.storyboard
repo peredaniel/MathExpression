@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jLp-8a-MFR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7HA-WB-uuS">
+            <objects>
+                <navigationController id="jLp-8a-MFR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gEO-Cu-peh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1gK-YP-rtk" kind="relationship" relationship="rootViewController" id="bdt-XZ-zds"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7J-8k-n6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1158" y="98"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="riQ-d6-wRN">
+            <objects>
+                <viewController id="1gK-YP-rtk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jMI-xm-3hk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-f1-XNu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-0t-CFY">
+                                        <rect key="frame" x="8" y="8" width="359" height="66.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">The calculator is a simple calculator, similar to the built-in calculator app in iOS, enabling simple mathematical computations to be performed.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htb-q3-nNg">
+                                        <rect key="frame" x="8" y="82.5" width="359" height="30"/>
+                                        <state key="normal" title="Go to Calculator!"/>
+                                        <connections>
+                                            <segue destination="A6I-LO-Y2y" kind="show" identifier="calculatorSegue" id="eXM-xt-aM6"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyL-55-Mgi">
+                                        <rect key="frame" x="8" y="120.5" width="359" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="wtW-a3-sk3"/>
+                                        </constraints>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-aO-XfF">
+                                        <rect key="frame" x="8" y="129.5" width="359" height="83"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">The evaluator enables to compute more complicated expressions, also giving the opportunity to use some pre-built transformations to convert plain String instances to numeric values.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-EA-yfO">
+                                        <rect key="frame" x="8" y="220.5" width="359" height="30"/>
+                                        <state key="normal" title="Go to Evaluator!"/>
+                                        <connections>
+                                            <segue destination="wrD-UX-QVU" kind="show" id="9Yf-iP-aCg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="0.0" right="8"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vCg-f1-XNu" firstAttribute="leading" secondItem="GYr-5s-1KW" secondAttribute="leading" id="6cP-Xr-lka"/>
+                            <constraint firstItem="vCg-f1-XNu" firstAttribute="top" secondItem="GYr-5s-1KW" secondAttribute="top" id="8aa-bb-ntQ"/>
+                            <constraint firstItem="GYr-5s-1KW" firstAttribute="trailing" secondItem="vCg-f1-XNu" secondAttribute="trailing" id="Vwc-3m-QmD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GYr-5s-1KW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5rA-cU-58v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YI5-m1-b2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="98"/>
+        </scene>
+        <!--Calculator-->
+        <scene sceneID="tEh-QC-KaK">
+            <objects>
+                <viewController id="A6I-LO-Y2y" customClass="CalculatorViewController" customModule="MathExpressionExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t78-Hc-8u2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ic-H6-apd">
+                                <rect key="frame" x="20" y="84" width="335" height="92"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Mc-6cp">
+                                        <rect key="frame" x="8" y="8" width="319" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="2oW-5a-vmr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmo-Cg-Nnj">
+                                        <rect key="frame" x="8" y="44" width="319" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xHE-VK-Sxi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Cmo-Cg-Nnj" firstAttribute="top" secondItem="ilf-Mc-6cp" secondAttribute="bottom" constant="16" id="0uI-BA-NI0"/>
+                                    <constraint firstAttribute="trailing" secondItem="ilf-Mc-6cp" secondAttribute="trailing" constant="8" id="F9a-sd-t8r"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cmo-Cg-Nnj" secondAttribute="bottom" constant="8" id="S0p-mw-CYZ"/>
+                                    <constraint firstItem="Cmo-Cg-Nnj" firstAttribute="leading" secondItem="6Ic-H6-apd" secondAttribute="leading" constant="8" id="cGT-Y6-9QI"/>
+                                    <constraint firstItem="ilf-Mc-6cp" firstAttribute="leading" secondItem="6Ic-H6-apd" secondAttribute="leading" constant="8" id="eee-tm-zQw"/>
+                                    <constraint firstItem="ilf-Mc-6cp" firstAttribute="top" secondItem="6Ic-H6-apd" secondAttribute="top" constant="8" id="ktM-y5-Ct6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cmo-Cg-Nnj" secondAttribute="trailing" constant="8" id="pdL-Fn-Bnm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyS-n6-0bA">
+                                <rect key="frame" x="20" y="196" width="335" height="451"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BHt-TA-ZKx">
+                                        <rect key="frame" x="0.0" y="59.5" width="335" height="391.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Aab-LN-EEx">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-DV-NVO">
+                                                        <rect key="frame" x="12" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="rg4-DV-NVO" secondAttribute="height" multiplier="1:1" id="iqr-wl-XSw"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="AC"/>
+                                                        <connections>
+                                                            <action selector="clearExpression:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="iGP-Nq-DZy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czg-J8-50A">
+                                                        <rect key="frame" x="93" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Czg-J8-50A" secondAttribute="height" multiplier="1:1" id="PTE-3W-6KD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="("/>
+                                                        <connections>
+                                                            <action selector="addBracket:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="FpM-4l-ZXj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By6-ip-NMZ">
+                                                        <rect key="frame" x="173.5" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="By6-ip-NMZ" secondAttribute="height" multiplier="1:1" id="n0b-uN-0QW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title=")"/>
+                                                        <connections>
+                                                            <action selector="addBracket:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="BqG-Na-PKi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKV-Jr-1XX">
+                                                        <rect key="frame" x="254.5" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="FKV-Jr-1XX" secondAttribute="height" multiplier="1:1" id="2Kc-KL-Brl"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="/"/>
+                                                        <connections>
+                                                            <action selector="addOperator:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="6tE-3r-Odw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="By6-ip-NMZ" firstAttribute="width" secondItem="By6-ip-NMZ" secondAttribute="height" multiplier="1:1" id="497-hD-AlD"/>
+                                                </constraints>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="12" bottom="0.0" right="12"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-zK-Fw4">
+                                                <rect key="frame" x="0.0" y="80.5" width="335" height="69"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdM-jp-xxn">
+                                                        <rect key="frame" x="12" y="0.0" width="69" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="OdM-jp-xxn" secondAttribute="height" multiplier="1:1" id="AbX-Rc-FV6"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="7"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="uix-K2-kxR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9v-BN-mhM">
+                                                        <rect key="frame" x="93" y="0.0" width="68.5" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="x9v-BN-mhM" secondAttribute="height" multiplier="1:1" id="4qC-cF-u5s"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="8"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="lpS-zA-Emz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8w-Kp-kZf">
+                                                        <rect key="frame" x="173.5" y="0.0" width="69" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="k8w-Kp-kZf" secondAttribute="height" multiplier="1:1" id="xQV-a6-uGf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="9"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="L8u-yc-SY3"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHp-4B-N9v">
+                                                        <rect key="frame" x="254.5" y="0.0" width="68.5" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uHp-4B-N9v" secondAttribute="height" multiplier="1:1" id="yhW-If-pD7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="*"/>
+                                                        <connections>
+                                                            <action selector="addOperator:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="eTr-pg-5rY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="12" bottom="0.0" right="12"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="buf-PW-5nC">
+                                                <rect key="frame" x="0.0" y="161.5" width="335" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLB-E2-Ade">
+                                                        <rect key="frame" x="12" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uLB-E2-Ade" secondAttribute="height" multiplier="1:1" id="by8-W2-bbg"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="4"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="78a-VQ-byH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-K1-Qqh">
+                                                        <rect key="frame" x="93" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ysP-K1-Qqh" secondAttribute="height" multiplier="1:1" id="Gjx-Km-euO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="5"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="sLz-0H-jRP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-wd-Ks3">
+                                                        <rect key="frame" x="173.5" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="LAR-wd-Ks3" secondAttribute="height" multiplier="1:1" id="FUR-Wk-qE2"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="6"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="sc9-u8-ZMn"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ti-e9-e8e">
+                                                        <rect key="frame" x="254.5" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9ti-e9-e8e" secondAttribute="height" multiplier="1:1" id="a9B-nz-mNY"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="-"/>
+                                                        <connections>
+                                                            <action selector="addOperator:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="wiG-iR-mAs"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="12" bottom="0.0" right="12"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="w3G-p2-hfl">
+                                                <rect key="frame" x="0.0" y="242" width="335" height="69"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nik-Z8-iws">
+                                                        <rect key="frame" x="12" y="0.0" width="69" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="nik-Z8-iws" secondAttribute="height" multiplier="1:1" id="KYU-jv-ban"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="1"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="MS3-2f-ZaU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-bu-UCO">
+                                                        <rect key="frame" x="93" y="0.0" width="68.5" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="2UB-bu-UCO" secondAttribute="height" multiplier="1:1" id="MnX-DO-RHd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="2"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="0fK-MM-vhX"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkP-qR-Lf5">
+                                                        <rect key="frame" x="173.5" y="0.0" width="69" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="wkP-qR-Lf5" secondAttribute="height" multiplier="1:1" id="6fF-cw-oCL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="3"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="UJp-c0-wxi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ion-rZ-S5Q">
+                                                        <rect key="frame" x="254.5" y="0.0" width="68.5" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ion-rZ-S5Q" secondAttribute="height" multiplier="1:1" id="JAq-GL-76a"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="+"/>
+                                                        <connections>
+                                                            <action selector="addOperator:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="WeA-0G-uJd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="12" bottom="0.0" right="12"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-Kz-TUc">
+                                                <rect key="frame" x="0.0" y="323" width="335" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsP-hU-5gP">
+                                                        <rect key="frame" x="12" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="PsP-hU-5gP" secondAttribute="height" multiplier="1:1" id="fIj-XE-TZC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="0"/>
+                                                        <connections>
+                                                            <action selector="addNumber:" destination="A6I-LO-Y2y" eventType="touchUpInside" id="4gE-vY-6QF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3j-3K-KEl">
+                                                        <rect key="frame" x="93" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="s3j-3K-KEl" secondAttribute="height" multiplier="1:1" id="xTY-hg-val"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="."/>
+                                                        <connections>
+                                                            <action selector="addDecimalOperator" destination="A6I-LO-Y2y" eventType="touchUpInside" id="CYY-ax-06S"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emE-ra-jwJ">
+                                                        <rect key="frame" x="173.5" y="0.0" width="69" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="emE-ra-jwJ" secondAttribute="height" multiplier="1:1" id="CBq-us-4Qu"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="+/-"/>
+                                                        <connections>
+                                                            <action selector="toggleSign" destination="A6I-LO-Y2y" eventType="touchUpInside" id="ajQ-1c-xOK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-m1-xAl">
+                                                        <rect key="frame" x="254.5" y="0.0" width="68.5" height="68.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="zwa-m1-xAl" secondAttribute="height" multiplier="1:1" id="jFt-bT-Q8o"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="="/>
+                                                        <connections>
+                                                            <action selector="evaluateExpression" destination="A6I-LO-Y2y" eventType="touchUpInside" id="xez-Ab-8Qb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="12" bottom="0.0" right="12"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BHt-TA-ZKx" firstAttribute="leading" secondItem="MyS-n6-0bA" secondAttribute="leading" id="YkD-eW-od6"/>
+                                    <constraint firstItem="BHt-TA-ZKx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MyS-n6-0bA" secondAttribute="top" id="iaA-6S-Eno"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHt-TA-ZKx" secondAttribute="bottom" id="pEq-Iq-ZDg"/>
+                                    <constraint firstAttribute="trailing" secondItem="BHt-TA-ZKx" secondAttribute="trailing" id="y57-wD-xEU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MyS-n6-0bA" firstAttribute="top" secondItem="6Ic-H6-apd" secondAttribute="bottom" constant="20" id="2vR-Ra-2mS"/>
+                            <constraint firstItem="oSw-Xh-ixH" firstAttribute="trailing" secondItem="MyS-n6-0bA" secondAttribute="trailing" constant="20" id="LTV-6R-u2k"/>
+                            <constraint firstItem="oSw-Xh-ixH" firstAttribute="trailing" secondItem="6Ic-H6-apd" secondAttribute="trailing" constant="20" id="Mer-SG-7Xo"/>
+                            <constraint firstItem="MyS-n6-0bA" firstAttribute="leading" secondItem="oSw-Xh-ixH" secondAttribute="leading" constant="20" id="eiQ-VF-2tV"/>
+                            <constraint firstItem="6Ic-H6-apd" firstAttribute="top" secondItem="oSw-Xh-ixH" secondAttribute="top" constant="20" id="oXj-G2-do0"/>
+                            <constraint firstItem="oSw-Xh-ixH" firstAttribute="bottom" secondItem="MyS-n6-0bA" secondAttribute="bottom" constant="20" id="p7y-My-2cI"/>
+                            <constraint firstItem="6Ic-H6-apd" firstAttribute="leading" secondItem="oSw-Xh-ixH" secondAttribute="leading" constant="20" id="w29-cX-SFu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oSw-Xh-ixH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calculator" id="MtE-Yc-suy"/>
+                    <connections>
+                        <outlet property="clearExpressionButton" destination="rg4-DV-NVO" id="tuB-YN-XqE"/>
+                        <outlet property="expressionLabel" destination="ilf-Mc-6cp" id="Swo-W4-gCk"/>
+                        <outlet property="newCharactersLabel" destination="Cmo-Cg-Nnj" id="4QZ-hR-f9E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbA-Qp-8Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="-340"/>
+        </scene>
+        <!--Evaluator-->
+        <scene sceneID="QuA-45-HTg">
+            <objects>
+                <viewController id="wrD-UX-QVU" customClass="EvaluatorViewController" customModule="MathExpressionExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TxF-Xs-xSI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-PR-gYJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="225.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expression to evaluate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X9-x6-gLF">
+                                        <rect key="frame" x="8" y="8" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type in a mathematical expression..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqn-q5-FMz">
+                                        <rect key="frame" x="8" y="36.5" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wrD-UX-QVU" id="kHY-if-l8E"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uc0-Zf-wMr">
+                                        <rect key="frame" x="8" y="74.5" width="359" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="8kW-Bo-1aq"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transformation to apply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-Cl-SX8">
+                                        <rect key="frame" x="8" y="83.5" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-nh-Gjb">
+                                        <rect key="frame" x="8" y="112" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkI-bm-e2Y">
+                                        <rect key="frame" x="8" y="150" width="359" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="j77-M2-hzg"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHB-rx-mFP">
+                                        <rect key="frame" x="8" y="159" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uae-dG-eTf">
+                                        <rect key="frame" x="8" y="187.5" width="359" height="30"/>
+                                        <state key="normal" title="Evaluate expression!"/>
+                                        <connections>
+                                            <action selector="evaluateExpression" destination="wrD-UX-QVU" eventType="touchUpInside" id="uhC-lT-s4o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wHl-PR-gYJ" firstAttribute="top" secondItem="gQX-5W-iLt" secondAttribute="top" id="7uR-lB-2kZ"/>
+                            <constraint firstItem="wHl-PR-gYJ" firstAttribute="leading" secondItem="gQX-5W-iLt" secondAttribute="leading" id="mUa-7l-bed"/>
+                            <constraint firstItem="gQX-5W-iLt" firstAttribute="trailing" secondItem="wHl-PR-gYJ" secondAttribute="trailing" id="tZz-at-5Jc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gQX-5W-iLt"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IIK-PT-8Yj" appends="YES" id="j9F-iR-m4A"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Evaluator" id="i67-FU-19T"/>
+                    <connections>
+                        <outlet property="evaluateButton" destination="Uae-dG-eTf" id="sG0-lJ-DIl"/>
+                        <outlet property="expressionTextField" destination="bqn-q5-FMz" id="Hg3-RR-kVv"/>
+                        <outlet property="resultLabel" destination="FHB-rx-mFP" id="Ily-cf-T45"/>
+                        <outlet property="transformationTextField" destination="Q1i-nh-Gjb" id="X22-kr-2nd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyz-g2-dCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="IIK-PT-8Yj">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="wrD-UX-QVU" id="jlG-wc-Nw2"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="742" y="566"/>
+        </scene>
+    </scenes>
+</document>

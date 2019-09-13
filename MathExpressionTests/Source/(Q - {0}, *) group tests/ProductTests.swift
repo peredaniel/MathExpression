@@ -1,4 +1,4 @@
-//  Copyright © 2019 Pedro Daniel Prieto Martínez. All rights reserved.
+//  Copyright © 2019 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
 import XCTest
 
