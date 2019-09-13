@@ -29,7 +29,7 @@ class SubtractionTests: XCTestCase {
         let b = Int16.random()
         let operation = Operation(
             String(format: Formula.SubtractionTests.simpleSubtractionWithParenthesesWithInitialMinus, a, b),
-            expectedResult: Double(b) - Double(a)
+            expectedResult: Double(a).negative + Double(b)
         )
         XCTAssertEqual(operation.compute(), operation.expectedResult)
     }

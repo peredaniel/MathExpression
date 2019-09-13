@@ -29,15 +29,19 @@ public struct MathExpression {
     }
 
     public func evaluate() -> Double {
-        switch formula.evaluationState {
+        switch formula.evaluationState() {
         case .isNumeric(let value):
             return value
         case .startsWithSymbol(let symbol):
             switch symbol {
             case .sum, .product:
                 return formula.dropingInitialValue().evaluate()
-            case .subtraction, .division:
+            case .division:
                 return formula.addingInitialValue(for: symbol).evaluate()
+            case .subtraction:
+                return formula.replaceSubtractionByNegative().evaluate()
+            case .negative:
+                return formula.dropingInitialValue().evaluate().negative
             }
         case .containsBracket(let brackets):
             return formula.evaluatingExpression(between: brackets).evaluate()

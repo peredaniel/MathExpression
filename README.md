@@ -15,11 +15,10 @@ Furthermore, the initializer admits an additional optional parameter called `tra
 
 ## Requirements
 
-| Version | Requirements            						                 |
-|:--------|:-----------------------------------------------------------------|
-| 1.1.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+, tvOS 10.0+, macOS 10.10+ |
-| 1.0.1   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
-| 1.0.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
+| Version         | Requirements                                                     |
+|:----------------|:-----------------------------------------------------------------|
+| 1.1.0 or higher | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+, tvOS 10.0+, macOS 10.10+ |
+| 1.0.0 and 1.0.1 | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
 
 The framework is written using **Swift 5.0**, but there is no code specific to that Swift version. Therefore, it should work with projects using Swift 4.2.
 
