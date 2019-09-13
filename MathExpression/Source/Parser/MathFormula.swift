@@ -75,18 +75,14 @@ extension MathFormula {
     }
 
     func decompose(with mathOperator: MathOperator) -> [MathExpression] {
+        var finalString = string
         if let _ = MathOperator.validConsecutiveOperatorsDuringEvaluation.first(where: { string.contains($0.key) }) {
-            var finalString = string
             for (doubleOperator, combinedOperator) in MathOperator.validConsecutiveOperatorsDuringEvaluation {
                 finalString = finalString.replacingOccurrences(of: doubleOperator, with: combinedOperator)
             }
-            return finalString.split(separator: mathOperator.character).map {
-                MathExpression(validString: String($0), transformation: transformation)
-            }
-        } else {
-            return string.split(separator: mathOperator.character).map {
-                MathExpression(validString: String($0), transformation: transformation)
-            }
+        }
+        return finalString.split(separator: mathOperator.character).map {
+            MathExpression(validString: String($0), transformation: transformation)
         }
     }
 
@@ -98,9 +94,7 @@ extension MathFormula {
     }
 
     func evaluatingExpression(between bracket: MathBrackets) -> MathExpression {
-        guard let stringWithBrackets = try? getString(between: bracket) else {
-            return MathExpression(validString: string, transformation: transformation)
-        }
+        let stringWithBrackets = (try? getString(between: bracket)) ?? ""
 
         let value = MathExpression(
             validString: String(stringWithBrackets.dropFirst().dropLast()),
@@ -127,7 +121,7 @@ private extension MathFormula {
         return string.contains(bracket.opening) || string.contains(bracket.closing)
     }
 
-    func getString(between bracket: MathBrackets) throws -> String? {
+    func getString(between bracket: MathBrackets) throws -> String {
         return try String(string.map { $0 }.characters(between: bracket))
     }
 
@@ -154,9 +148,7 @@ private extension MathFormula {
                 _ = try MathFormula(MathOperator.negative.rawValue + String(string.dropFirst()), transformation: transformation)
             }
         case .containsBracket(let brackets):
-            guard let stringWithBrackets = try getString(between: brackets) else {
-                return
-            }
+            let stringWithBrackets = try getString(between: brackets)
             _ = try MathFormula(
                 String(stringWithBrackets.dropFirst().dropLast()),
                 transformation: transformation
