@@ -7,15 +7,19 @@ jobs:
   include:
   - stage: build
     name: "Building iOS"
-    script: bundle exec fastlane build platform:'iOS'
+    script: bundle exec fastlane build_framework platform:'iOS'
 
   - stage: build
     name: "Building tvOS"
-    script: bundle exec fastlane build platform:'tvOS'
+    script: bundle exec fastlane build_framework platform:'tvOS'
 
   - stage: build
     name: "Building macOS"
-    script: bundle exec fastlane build platform:'macOS'
+    script: bundle exec fastlane build_framework platform:'macOS'
+
+  - stage: build
+    name: "Building example app"
+    script: bundle exec fastlane build_example_app ios_version:'12.4'
 
   - stage: test
     name: "Running tests"

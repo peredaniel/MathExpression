@@ -5,7 +5,7 @@ import XCTest
 
 class FactorialTransformationTests: XCTestCase {
     let transformation: (String) -> Double = { string in
-        guard string.last == "!", var number = Int(string.dropLast()) else { return 0.0 }
+        guard string.last == "!", let number = Int(string.dropLast()) else { return 0.0 }
         return Double(number.factorial())
     }
 

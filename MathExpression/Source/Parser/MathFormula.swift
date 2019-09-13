@@ -86,13 +86,6 @@ extension MathFormula {
 
     func decompose(with mathOperator: MathOperator) -> [MathExpression] {
         if let _ = MathOperator.validConsecutiveOperatorsDuringEvaluation.first(where: { string.contains($0.key) }) {
-//            let newTranformation: (String) -> Double = { string in
-//                guard string.contains(MathOperator.negativeValueOperator.rawValue),
-//                    let newExpression = string.split(separator: MathOperator.negativeValueOperator.character).last else {
-//                        return self.transformation(string)
-//                }
-//                return MathExpression(validString: String(newExpression), transformation: self.transformation).evaluate().negative
-//            }
             var finalString = string
             for (doubleOperator, combinedOperator) in MathOperator.validConsecutiveOperatorsDuringEvaluation {
                 finalString = finalString.replacingOccurrences(of: doubleOperator, with: combinedOperator)
