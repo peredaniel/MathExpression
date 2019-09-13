@@ -34,14 +34,10 @@ public struct MathExpression {
             return value
         case .startsWithSymbol(let symbol):
             switch symbol {
-            case .sum, .product:
+            case .sum:
                 return formula.dropingInitialValue().evaluate()
-            case .division:
-                return formula.addingInitialValue(for: symbol).evaluate()
             case .subtraction:
                 return formula.replaceSubtractionByNegative().evaluate()
-            case .negative:
-                return formula.dropingInitialValue().evaluate().negative
             }
         case .containsBracket(let brackets):
             return formula.evaluatingExpression(between: brackets).evaluate()

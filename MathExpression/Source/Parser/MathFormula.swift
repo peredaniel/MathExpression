@@ -3,7 +3,7 @@
 struct MathFormula {
     enum EvaluationState {
         case isNumeric(Double)
-        case startsWithSymbol(MathOperator)
+        case startsWithSymbol(AdditiveOperator)
         case containsBracket(MathBrackets)
         case canApplyOperator(MathOperator)
         case canApplyTransformation
@@ -42,9 +42,9 @@ extension MathFormula {
             return .isNumeric(value)
         }
 
-        for mathOperator in MathOperator.additiveOperators {
-            if starts(with: mathOperator) {
-                return .startsWithSymbol(mathOperator)
+        for additiveOperator in AdditiveOperator.allCases {
+            if starts(with: additiveOperator) {
+                return .startsWithSymbol(additiveOperator)
             }
         }
 
@@ -62,24 +62,14 @@ extension MathFormula {
     }
 
     func getFirstOperator(validating: Bool = false) -> MathOperator? {
-        if validating {
-            return MathOperator.validationCases.first { string.contains($0.rawValue) }
-        } else {
-            return MathOperator.evaluationCases.first { string.contains($0.rawValue) }
-        }
+        let cases = validating ? MathOperator.validationCases : MathOperator.evaluationCases
+        return cases.first { string.contains($0.rawValue) }
     }
 }
 
 // MARK: - Functions
 
 extension MathFormula {
-    func addingInitialValue(for mathOperator: MathOperator) -> MathExpression {
-        return MathExpression(
-            validString: mathOperator.neutralElement + string,
-            transformation: transformation
-        )
-    }
-
     func applyTransformation() -> Double {
         return transformation(string)
     }
@@ -141,8 +131,8 @@ private extension MathFormula {
         return try String(string.map { $0 }.characters(between: bracket))
     }
 
-    func starts(with mathOperator: MathOperator) -> Bool {
-        return string.first == mathOperator.character
+    func starts(with additiveOperator: AdditiveOperator) -> Bool {
+        return string.first == additiveOperator.character
     }
 
     func validate() throws {
@@ -158,10 +148,10 @@ private extension MathFormula {
             break
         case .startsWithSymbol(let symbol):
             switch symbol {
-            case .sum, .product, .negative:
+            case .sum:
                 _ = try MathFormula(String(string.dropFirst()), transformation: transformation)
-            case .subtraction, .division:
-                _ = try MathFormula(symbol.neutralElement + string, transformation: transformation)
+            case .subtraction:
+                _ = try MathFormula(MathOperator.negative.rawValue + String(string.dropFirst()), transformation: transformation)
             }
         case .containsBracket(let brackets):
             guard let stringWithBrackets = try getString(between: brackets) else {
