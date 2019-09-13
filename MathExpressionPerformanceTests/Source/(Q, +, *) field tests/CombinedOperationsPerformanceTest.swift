@@ -113,4 +113,48 @@ class CombinedOperationsPerformanceTests: XCTestCase {
             _ = expression.evaluate()
         }
     }
+
+    func testPerformanceAdditionWithProductNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+
+        measure {
+            let expression = try! MathExpression(String(format: Formula.CombinedOperationsTests.additionWithProductNoParentheses, a, b, c))
+            _ = expression.evaluate()
+        }
+    }
+
+    func testPerformanceAdditionWithDivisionNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+
+        measure {
+            let expression = try! MathExpression(String(format: Formula.CombinedOperationsTests.additionWithDivisionNoParentheses, a, b, c))
+            _ = expression.evaluate()
+        }
+    }
+
+    func testPerformanceSubtractionWithProductNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+
+        measure {
+            let expression = try! MathExpression(String(format: Formula.CombinedOperationsTests.subtractionWithProductNoParentheses, a, b, c))
+            _ = expression.evaluate()
+        }
+    }
+
+    func testPerformanceSubtractionWithDivisionNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+
+        measure {
+            let expression = try! MathExpression(String(format: Formula.CombinedOperationsTests.subtractionWithDivisionNoParentheses, a, b, c))
+            _ = expression.evaluate()
+        }
+    }
 }

@@ -135,7 +135,7 @@ class CombinedOperationsTests: XCTestCase {
         XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
     }
 
-    func testsubtractionWithProductNoParentheses() {
+    func testSubtractionWithProductNoParentheses() {
         let a = Int16.random()
         let b = Int16.random()
         let c = Int16.random()
