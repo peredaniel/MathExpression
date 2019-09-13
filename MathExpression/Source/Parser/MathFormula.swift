@@ -74,7 +74,7 @@ extension MathFormula {
         return transformation(string)
     }
 
-    func decompose(with mathOperator: MathOperator) -> [MathExpression] {
+    func decompose(with mathOperator: MathOperator) -> [MathFormula] {
         var finalString = string
         if let _ = MathOperator.validConsecutiveOperatorsDuringEvaluation.first(where: { string.contains($0.key) }) {
             for (doubleOperator, combinedOperator) in MathOperator.validConsecutiveOperatorsDuringEvaluation {
@@ -82,32 +82,34 @@ extension MathFormula {
             }
         }
         return finalString.split(separator: mathOperator.character).map {
-            MathExpression(validString: String($0), transformation: transformation)
+            MathFormula(validString: String($0), transformation: transformation)
         }
     }
 
-    func dropingInitialValue() -> MathExpression {
-        return MathExpression(
+    func dropingInitialValue() -> MathFormula {
+        return MathFormula(
             validString: String(string.dropFirst()),
             transformation: transformation
         )
     }
 
-    func evaluatingExpression(between bracket: MathBrackets) -> MathExpression {
+    func evaluatingExpression(between bracket: MathBrackets) -> MathFormula {
         let stringWithBrackets = (try? getString(between: bracket)) ?? ""
 
         let value = MathExpression(
-            validString: String(stringWithBrackets.dropFirst().dropLast()),
-            transformation: transformation
+            MathFormula(
+                validString: String(stringWithBrackets.dropFirst().dropLast()),
+                transformation: transformation
+            )
         ).evaluate()
-        return MathExpression(
+        return MathFormula(
             validString: string.replacingOccurrences(of: stringWithBrackets, with: value.avoidScientificNotation()),
             transformation: transformation
         )
     }
 
-    func replaceSubtractionByNegative() -> MathExpression {
-        return MathExpression(
+    func replaceSubtractionByNegative() -> MathFormula {
+        return MathFormula(
             validString: MathOperator.negative.rawValue + String(string.dropFirst()),
             transformation: transformation
         )

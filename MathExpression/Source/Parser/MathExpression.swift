@@ -21,11 +21,8 @@ public struct MathExpression {
         formula = try MathFormula(string, transformation: transformation)
     }
 
-    internal init(
-        validString string: String,
-        transformation: @escaping (String) -> Double
-    ) {
-        formula = MathFormula(validString: string, transformation: transformation)
+    internal init(_ formula: MathFormula) {
+        self.formula = formula
     }
 
     public func evaluate() -> Double {
@@ -35,14 +32,16 @@ public struct MathExpression {
         case .startsWithSymbol(let symbol):
             switch symbol {
             case .sum:
-                return formula.dropingInitialValue().evaluate()
+                return MathExpression(formula.dropingInitialValue()).evaluate()
             case .subtraction:
-                return formula.replaceSubtractionByNegative().evaluate()
+                return MathExpression(formula.replaceSubtractionByNegative()).evaluate()
             }
         case .containsBracket(let brackets):
-            return formula.evaluatingExpression(between: brackets).evaluate()
+            return MathExpression(formula.evaluatingExpression(between: brackets)).evaluate()
         case .canApplyOperator(let mathOperator):
-            return mathOperator.apply(to: formula.decompose(with: mathOperator).evaluate())
+            return mathOperator.apply(
+                to: formula.decompose(with: mathOperator).map { MathExpression($0) }.evaluate()
+            )
         case .canApplyTransformation:
             return formula.applyTransformation()
         }
