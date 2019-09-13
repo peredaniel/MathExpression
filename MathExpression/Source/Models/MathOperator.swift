@@ -2,8 +2,6 @@
 
 import Foundation
 
-typealias Operator = AdditiveArithmetic
-
 enum AdditiveOperator: String, CaseIterable {
     case sum = "+"
     case subtraction = "-"
