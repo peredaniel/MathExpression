@@ -3,10 +3,6 @@
 import Foundation
 
 extension FloatingPoint {
-    var inverse: Self {
-        return type(of: self).init(1) / self
-    }
-
     var negative: Self {
         var negativeValue = self
         negativeValue.negate()

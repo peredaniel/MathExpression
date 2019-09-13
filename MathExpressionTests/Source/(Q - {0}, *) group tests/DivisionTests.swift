@@ -33,7 +33,7 @@ class DivisionTests: XCTestCase {
         let b = Int16.random()
         let operation = Operation(
             String(format: Formula.DivisionTests.simpleDivisionWithParenthesesWithInitialDivision, a, b),
-            expectedResult: (Double(a) / Double(b)).inverse
+            expectedResult: 1.0 / (Double(a) / Double(b))
         )
         XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
     }
@@ -53,7 +53,7 @@ class DivisionTests: XCTestCase {
         let a = Int16.random()
         let operation = Operation(
             String(format: Formula.DivisionTests.divideSingleNumber, a),
-            expectedResult: Double(a).inverse
+            expectedResult: 1.0 / Double(a)
         )
         XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
     }

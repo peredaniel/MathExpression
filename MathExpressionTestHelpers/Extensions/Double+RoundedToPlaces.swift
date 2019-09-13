@@ -2,7 +2,7 @@
 
 import Foundation
 
-public extension Double {
+extension Double {
     func rounded(
         toPlaces places: Int,
         roundingRule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
