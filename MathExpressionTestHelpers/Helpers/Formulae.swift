@@ -42,6 +42,10 @@ enum Formula {
         static let divisionOfAdditionWithSubtraction = "(%d + %d) / (%d - %d)"
         static let divisionOfProductOfAdditionsWithProductOfSubtractions = "(%d + %d) * (%d + %d) / ((%d - %d) * (%d - %d))"
         static let divisionOfCrossedProducts = "(%d + %d) * (%d - %d) / ((%d + %d) * (%d - %d))"
+        static let additionWithProductNoParentheses = "%d + %d * %d"
+        static let additionWithDivisionNoParentheses = "%d + %d / %d"
+        static let subtractionWithProductNoParentheses = "%d * %d - %d"
+        static let subtractionWithDivisionNoParentheses = "%d - %d / %d"
     }
 
     enum DivisionTests {

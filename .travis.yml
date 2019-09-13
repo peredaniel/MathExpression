@@ -15,7 +15,7 @@ jobs:
 
   - stage: build
     name: "Building macOS"
-    script: bundle exec fastlane build platform:'iOS'
+    script: bundle exec fastlane build platform:'macOS'
 
   - stage: test
     name: "Running tests"

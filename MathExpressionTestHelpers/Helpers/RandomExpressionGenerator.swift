@@ -52,7 +52,7 @@ class RandomExpressionGenerator {
 
             // We randomly select an operator to connect with the previous formula (if any)
             if index > 0 {
-                expression += MathOperator.allCases.randomElement()!.rawValue
+                expression += MathOperator.validationCases.randomElement()!.rawValue
             }
 
             // We generate the formula string with random number values using the auxiliary function.

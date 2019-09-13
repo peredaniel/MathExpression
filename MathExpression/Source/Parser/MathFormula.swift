@@ -37,7 +37,7 @@ extension MathFormula {
         return Double(string)
     }
 
-    var evaluationState: EvaluationState {
+    func evaluationState(validating: Bool = false) -> EvaluationState {
         if let value = asDouble {
             return .isNumeric(value)
         }
@@ -54,15 +54,19 @@ extension MathFormula {
             }
         }
 
-        if let firstOperator = firstOperator {
+        if let firstOperator = getFirstOperator(validating: validating) {
             return .canApplyOperator(firstOperator)
         }
 
         return .canApplyTransformation
     }
 
-    var firstOperator: MathOperator? {
-        return MathOperator.allCases.first { string.contains($0.rawValue) }
+    func getFirstOperator(validating: Bool = false) -> MathOperator? {
+        if validating {
+            return MathOperator.validationCases.first { string.contains($0.rawValue) }
+        } else {
+            return MathOperator.evaluationCases.first { string.contains($0.rawValue) }
+        }
     }
 }
 
@@ -81,8 +85,25 @@ extension MathFormula {
     }
 
     func decompose(with mathOperator: MathOperator) -> [MathExpression] {
-        return string.split(separator: mathOperator.character).map {
-            MathExpression(validString: String($0), transformation: transformation)
+        if let _ = MathOperator.validConsecutiveOperatorsDuringEvaluation.first(where: { string.contains($0.key) }) {
+//            let newTranformation: (String) -> Double = { string in
+//                guard string.contains(MathOperator.negativeValueOperator.rawValue),
+//                    let newExpression = string.split(separator: MathOperator.negativeValueOperator.character).last else {
+//                        return self.transformation(string)
+//                }
+//                return MathExpression(validString: String(newExpression), transformation: self.transformation).evaluate().negative
+//            }
+            var finalString = string
+            for (doubleOperator, combinedOperator) in MathOperator.validConsecutiveOperatorsDuringEvaluation {
+                finalString = finalString.replacingOccurrences(of: doubleOperator, with: combinedOperator)
+            }
+            return finalString.split(separator: mathOperator.character).map {
+                MathExpression(validString: String($0), transformation: transformation)
+            }
+        } else {
+            return string.split(separator: mathOperator.character).map {
+                MathExpression(validString: String($0), transformation: transformation)
+            }
         }
     }
 
@@ -104,6 +125,13 @@ extension MathFormula {
         ).evaluate()
         return MathExpression(
             validString: string.replacingOccurrences(of: stringWithBrackets, with: value.avoidScientificNotation()),
+            transformation: transformation
+        )
+    }
+
+    func replaceSubtractionByNegative() -> MathExpression {
+        return MathExpression(
+            validString: MathOperator.negative.rawValue + String(string.dropFirst()),
             transformation: transformation
         )
     }
@@ -132,12 +160,12 @@ private extension MathFormula {
         try string.validateStartingAndEndingCharacters()
         try string.validateNoInvalidConsecutiveOperators()
 
-        switch evaluationState {
+        switch evaluationState(validating: true) {
         case .isNumeric:
             break
         case .startsWithSymbol(let symbol):
             switch symbol {
-            case .sum, .product:
+            case .sum, .product, .negative:
                 _ = try MathFormula(String(string.dropFirst()), transformation: transformation)
             case .subtraction, .division:
                 _ = try MathFormula(symbol.neutralElement + string, transformation: transformation)
@@ -190,7 +218,7 @@ private extension String {
             throw MathExpression.ValidationError.startsWithNonSumOrSubtractionOperator(String(first))
         }
 
-        if MathOperator.allCases.map({ $0.rawValue }).contains(String(last)) {
+        if MathOperator.validationCases.map({ $0.rawValue }).contains(String(last)) {
             throw MathExpression.ValidationError.endsWithOperator(String(last))
         }
     }

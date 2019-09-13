@@ -33,7 +33,7 @@ class AdditionAndSubtractionTests: XCTestCase {
         let d = Int16.random()
         let operation = Operation(
             String(format: Formula.AdditionAndSubtractionTests.simpleOperationWithParenthesesAndInitialMinus, a, b, c, d),
-            expectedResult: Double(a).negative + Double(b) - Double(c) + Double(d)
+            expectedResult: (Double(a) - Double(b)).negative - Double(c) + Double(d)
         )
         XCTAssertEqual(operation.compute(), operation.expectedResult)
     }
