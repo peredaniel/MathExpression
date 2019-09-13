@@ -38,12 +38,25 @@ end
 
 desc "Builds the framework for the specified platform (either 'iOS', 'tvOS' or 'macOS')."
 desc "This lane is to make sure that all platforms build correctly and there are no breaking changes. No tests are executed."
-desc "Usage example: fastlane ios test device:'iPhone 8'"
-lane :build do |options|
-	raise "Missing 'platform' parameter. Usage: fastlane build platform:PLATFORM" unless options[:platform]
+desc "Usage example: fastlane build_framework platform:'iOS'"
+lane :build_framework do |options|
+	raise "Missing 'platform' parameter. Usage: fastlane build_framework platform:PLATFORM" unless options[:platform]
 	platform = options[:platform]
 	xcbuild(
 		scheme: "MathExpression-" + "#{platform}",
+		clean: true
+	)
+end
+
+desc "Builds the example app for the specified iOS version."
+desc "This lane is to make sure that the example app builds correctly and that breaking API changes are detected before deployment."
+desc "Usage example: fastlane build_example_app ios_version:'12.4'"
+lane :build_example_app do |options|
+	raise "Missing 'ios_version' parameter. Usage: fastlane build_example_app ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	xcbuild(
+		scheme: "MathExpressionExample",
+		sdk: "iphonesimulator" + "#{ios_version}",
 		clean: true
 	)
 end

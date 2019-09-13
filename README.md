@@ -197,7 +197,6 @@ We use [Travis CI](https://travis-ci.com/) as our continuous integration solutio
 Although the current implementation does provide what we need, there are several ideas in our minds that we are willing to implement when time allows it. In particular:
 * Add a `priority` property to operators (public, non-modifiable) and transformations (modifiable), so that they are executed in the order that we really need.
 * Add some additional mathematical operators, such as `^` (for exponentiation), and maybe some functions such as trigonometric functions.
-* Add a simple example app with a text field and a couple of labels to input a mathematical expression and compute the value or return the error in case the expression is non-valid.
 * Add support for [Swift Package Manager](https://swift.org/package-manager/).
 
 ## Similar frameworks
