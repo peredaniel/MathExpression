@@ -1,3 +1,8 @@
+### 1.1.1
+
+* Fixed issue in operation priority.
+* Added further tests.
+
 ### 1.1.0
 
 * Added support for tvOS 10 or higher.
