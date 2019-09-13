@@ -2,7 +2,8 @@
 
 import Foundation
 
-enum MathOperator: String, CaseIterable {
+enum MathOperator: String {
+    case negative = "_"
     case product = "*"
     case division = "/"
     case sum = "+"
@@ -10,7 +11,7 @@ enum MathOperator: String, CaseIterable {
 
     var neutralElement: String {
         switch self {
-        case .sum, .subtraction: return "0"
+        case .sum, .subtraction, .negative: return "0"
         case .product, .division: return "1"
         }
     }
@@ -19,8 +20,16 @@ enum MathOperator: String, CaseIterable {
         return [.sum, .subtraction]
     }
 
+    static var evaluationCases: [MathOperator] {
+        return [.sum, .subtraction, .product, .division, .negative]
+    }
+
     static var multiplicativeOperators: [MathOperator] {
         return [.product, .division]
+    }
+
+    static var validationCases: [MathOperator] {
+        return [.product, .division, .sum, .subtraction]
     }
 }
 
@@ -33,6 +42,16 @@ extension MathOperator {
             MathOperator.subtraction.rawValue + MathOperator.sum.rawValue: MathOperator.subtraction.rawValue,
             MathOperator.sum.rawValue + MathOperator.sum.rawValue: MathOperator.sum.rawValue,
             MathOperator.subtraction.rawValue + MathOperator.subtraction.rawValue: MathOperator.sum.rawValue
+        ]
+    }
+
+    static var validConsecutiveOperatorsDuringEvaluation: [String: String] {
+        return [
+            MathOperator.negative.rawValue + MathOperator.sum.rawValue: MathOperator.negative.rawValue,
+            MathOperator.negative.rawValue + MathOperator.subtraction.rawValue: MathOperator.sum.rawValue,
+            MathOperator.sum.rawValue + MathOperator.subtraction.rawValue: MathOperator.sum.rawValue + MathOperator.negative.rawValue,
+            MathOperator.product.rawValue + MathOperator.subtraction.rawValue: MathOperator.product.rawValue + MathOperator.negative.rawValue,
+            MathOperator.division.rawValue + MathOperator.subtraction.rawValue: MathOperator.division.rawValue + MathOperator.negative.rawValue
         ]
     }
 
@@ -57,6 +76,7 @@ extension MathOperator {
         case .subtraction: return args.subtract()
         case .product: return args.multiply()
         case .division: return args.divide()
+        case .negative: return args.first?.negative ?? 0.0
         }
     }
 }

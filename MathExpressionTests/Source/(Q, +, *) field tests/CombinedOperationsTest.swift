@@ -112,4 +112,48 @@ class CombinedOperationsTests: XCTestCase {
         )
         XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
     }
+
+    func testAdditionWithProductNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+        let operation = Operation(
+            String(format: Formula.CombinedOperationsTests.additionWithProductNoParentheses, a, b, c),
+            expectedResult: Double(a) + Double(b) * Double(c)
+        )
+        XCTAssertEqual(operation.compute(), operation.expectedResult)
+    }
+
+    func testAdditionWithDivisionNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+        let operation = Operation(
+            String(format: Formula.CombinedOperationsTests.additionWithDivisionNoParentheses, a, b, c),
+            expectedResult: Double(a) + Double(b) / Double(c)
+        )
+        XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
+    }
+
+    func testsubtractionWithProductNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+        let operation = Operation(
+            String(format: Formula.CombinedOperationsTests.subtractionWithProductNoParentheses, a, b, c),
+            expectedResult: Double(a) * Double(b) - Double(c)
+        )
+        XCTAssertEqual(operation.compute(), operation.expectedResult)
+    }
+
+    func testSubtractionWithDivisionNoParentheses() {
+        let a = Int16.random()
+        let b = Int16.random()
+        let c = Int16.random()
+        let operation = Operation(
+            String(format: Formula.CombinedOperationsTests.subtractionWithDivisionNoParentheses, a, b, c),
+            expectedResult: Double(a) - Double(b) / Double(c)
+        )
+        XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
+    }
 }
