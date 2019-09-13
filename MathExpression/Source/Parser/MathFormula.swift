@@ -3,7 +3,7 @@
 struct MathFormula {
     enum EvaluationState {
         case isNumeric(Double)
-        case startsWithSymbol(MathOperator)
+        case startsWithSymbol(AdditiveOperator)
         case containsBracket(MathBrackets)
         case canApplyOperator(MathOperator)
         case canApplyTransformation
@@ -42,9 +42,9 @@ extension MathFormula {
             return .isNumeric(value)
         }
 
-        for mathOperator in MathOperator.additiveOperators {
-            if starts(with: mathOperator) {
-                return .startsWithSymbol(mathOperator)
+        for additiveOperator in AdditiveOperator.allCases {
+            if starts(with: additiveOperator) {
+                return .startsWithSymbol(additiveOperator)
             }
         }
 
@@ -62,68 +62,54 @@ extension MathFormula {
     }
 
     func getFirstOperator(validating: Bool = false) -> MathOperator? {
-        if validating {
-            return MathOperator.validationCases.first { string.contains($0.rawValue) }
-        } else {
-            return MathOperator.evaluationCases.first { string.contains($0.rawValue) }
-        }
+        let cases = validating ? MathOperator.validationCases : MathOperator.evaluationCases
+        return cases.first { string.contains($0.rawValue) }
     }
 }
 
 // MARK: - Functions
 
 extension MathFormula {
-    func addingInitialValue(for mathOperator: MathOperator) -> MathExpression {
-        return MathExpression(
-            validString: mathOperator.neutralElement + string,
-            transformation: transformation
-        )
-    }
-
     func applyTransformation() -> Double {
         return transformation(string)
     }
 
-    func decompose(with mathOperator: MathOperator) -> [MathExpression] {
+    func decompose(with mathOperator: MathOperator) -> [MathFormula] {
+        var finalString = string
         if let _ = MathOperator.validConsecutiveOperatorsDuringEvaluation.first(where: { string.contains($0.key) }) {
-            var finalString = string
             for (doubleOperator, combinedOperator) in MathOperator.validConsecutiveOperatorsDuringEvaluation {
                 finalString = finalString.replacingOccurrences(of: doubleOperator, with: combinedOperator)
             }
-            return finalString.split(separator: mathOperator.character).map {
-                MathExpression(validString: String($0), transformation: transformation)
-            }
-        } else {
-            return string.split(separator: mathOperator.character).map {
-                MathExpression(validString: String($0), transformation: transformation)
-            }
+        }
+        return finalString.split(separator: mathOperator.character).map {
+            MathFormula(validString: String($0), transformation: transformation)
         }
     }
 
-    func dropingInitialValue() -> MathExpression {
-        return MathExpression(
+    func dropingInitialValue() -> MathFormula {
+        return MathFormula(
             validString: String(string.dropFirst()),
             transformation: transformation
         )
     }
 
-    func evaluatingExpression(between bracket: MathBrackets) -> MathExpression {
-        guard let stringWithBrackets = try? getString(between: bracket) else {
-            return MathExpression(validString: string, transformation: transformation)
-        }
+    func evaluatingExpression(between bracket: MathBrackets) -> MathFormula {
+        let stringWithBrackets = (try? getString(between: bracket)) ?? ""
 
         let value = MathExpression(
-            validString: String(stringWithBrackets.dropFirst().dropLast()),
-            transformation: transformation
+            MathFormula(
+                validString: String(stringWithBrackets.dropFirst().dropLast()),
+                transformation: transformation
+            )
         ).evaluate()
-        return MathExpression(
+        return MathFormula(
             validString: string.replacingOccurrences(of: stringWithBrackets, with: value.avoidScientificNotation()),
             transformation: transformation
         )
     }
 
-    func replaceSubtractionByNegative() -> MathExpression {
-        return MathExpression(
+    func replaceSubtractionByNegative() -> MathFormula {
+        return MathFormula(
             validString: MathOperator.negative.rawValue + String(string.dropFirst()),
             transformation: transformation
         )
@@ -137,12 +123,12 @@ private extension MathFormula {
         return string.contains(bracket.opening) || string.contains(bracket.closing)
     }
 
-    func getString(between bracket: MathBrackets) throws -> String? {
+    func getString(between bracket: MathBrackets) throws -> String {
         return try String(string.map { $0 }.characters(between: bracket))
     }
 
-    func starts(with mathOperator: MathOperator) -> Bool {
-        return string.first == mathOperator.character
+    func starts(with additiveOperator: AdditiveOperator) -> Bool {
+        return string.first == additiveOperator.character
     }
 
     func validate() throws {
@@ -158,15 +144,13 @@ private extension MathFormula {
             break
         case .startsWithSymbol(let symbol):
             switch symbol {
-            case .sum, .product, .negative:
+            case .sum:
                 _ = try MathFormula(String(string.dropFirst()), transformation: transformation)
-            case .subtraction, .division:
-                _ = try MathFormula(symbol.neutralElement + string, transformation: transformation)
+            case .subtraction:
+                _ = try MathFormula(MathOperator.negative.rawValue + String(string.dropFirst()), transformation: transformation)
             }
         case .containsBracket(let brackets):
-            guard let stringWithBrackets = try getString(between: brackets) else {
-                return
-            }
+            let stringWithBrackets = try getString(between: brackets)
             _ = try MathFormula(
                 String(stringWithBrackets.dropFirst().dropLast()),
                 transformation: transformation

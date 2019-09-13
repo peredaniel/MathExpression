@@ -21,7 +21,7 @@ class ProductAndDivisionTests: XCTestCase {
         let c = Int16.random()
         let operation = Operation(
             String(format: Formula.ProductAndDivisionTests.simpleOperationWithParentheses, a, b, c),
-            expectedResult: Double(a) / (Double(b).inverse * Double(c))
+            expectedResult: Double(a) / (Double(c) / Double(b))
         )
         XCTAssertEqual(operation.compute().rounded(toPlaces: 6), operation.expectedResult.rounded(toPlaces: 6))
     }

@@ -47,9 +47,10 @@
 		9F21580C2319D31300E5FF81 /* ExponentialTransformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21580B2319D31300E5FF81 /* ExponentialTransformationTests.swift */; };
 		9F21580E2319D5B200E5FF81 /* FactorialTransformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F21580D2319D5B200E5FF81 /* FactorialTransformationTests.swift */; };
 		9F304D282319645500CE4805 /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D272319645500CE4805 /* DivisionTests.swift */; };
-		9F304D2A23196CD800CE4805 /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
 		9F304D2C23196E5600CE4805 /* ProductAndDivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2B23196E5600CE4805 /* ProductAndDivisionTests.swift */; };
 		9F304D2E23197A8300CE4805 /* CombinedOperationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2D23197A8300CE4805 /* CombinedOperationsTest.swift */; };
+		9F8056BD232C1A0300630BD4 /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
+		9F8056BE232C1A0300630BD4 /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
 		9F827AEC232A4E0F0049F63B /* EvaluatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F827AEB232A4E0F0049F63B /* EvaluatorViewModel.swift */; };
 		9F827AEE232A4E2C0049F63B /* EvaluatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F827AED232A4E2C0049F63B /* EvaluatorViewController.swift */; };
 		9F827AF0232A7AA90049F63B /* MathTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F827AEF232A7AA90049F63B /* MathTransformation.swift */; };
@@ -70,14 +71,12 @@
 		9FF96DA22321399200FC90CA /* MathFormula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D052316789B009CEB51 /* MathFormula.swift */; };
 		9FF96DA32321399200FC90CA /* MathBrackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A442D2317BB830088A9D5 /* MathBrackets.swift */; };
 		9FF96DA42321399200FC90CA /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0A231685AF009CEB51 /* FloatingPoint+Extensions.swift */; };
-		9FF96DA52321399200FC90CA /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
 		9FF96DA62321399200FC90CA /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A44302317D74A0088A9D5 /* Formatter+Extensions.swift */; };
 		9FF96DA72321399200FC90CA /* MathExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2CFC23166C34009CEB51 /* MathExpression.swift */; };
 		9FF96DA82321399200FC90CA /* MathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0323167848009CEB51 /* MathOperator.swift */; };
 		9FF96DB423214AAF00FC90CA /* MathFormula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D052316789B009CEB51 /* MathFormula.swift */; };
 		9FF96DB523214AAF00FC90CA /* MathBrackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A442D2317BB830088A9D5 /* MathBrackets.swift */; };
 		9FF96DB623214AAF00FC90CA /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0A231685AF009CEB51 /* FloatingPoint+Extensions.swift */; };
-		9FF96DB723214AAF00FC90CA /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */; };
 		9FF96DB823214AAF00FC90CA /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A44302317D74A0088A9D5 /* Formatter+Extensions.swift */; };
 		9FF96DB923214AAF00FC90CA /* MathExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2CFC23166C34009CEB51 /* MathExpression.swift */; };
 		9FF96DBA23214AAF00FC90CA /* MathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0323167848009CEB51 /* MathOperator.swift */; };
@@ -403,7 +402,6 @@
 		9F1A2D0923168461009CEB51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */,
 				9F1A2D0A231685AF009CEB51 /* FloatingPoint+Extensions.swift */,
 				9F1A44302317D74A0088A9D5 /* Formatter+Extensions.swift */,
 			);
@@ -465,6 +463,7 @@
 		9F49C8752317224900F30D74 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */,
 				9FFC47DA2316D91800F237A4 /* Numeric+Random.swift */,
 				9F2158092319D25C00E5FF81 /* String+Random.swift */,
 			);
@@ -807,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F153DD0231E87D6005A6966 /* ValidationPerformanceTests.swift in Sources */,
+				9F8056BD232C1A0300630BD4 /* Double+RoundedToPlaces.swift in Sources */,
 				9F12B9E8231FBDFC004B079A /* StressPerformanceTests.swift in Sources */,
 				9F153DCA231E87D6005A6966 /* CombinedOperationsPerformanceTest.swift in Sources */,
 				9F12B9EF231FDFFE004B079A /* Operation.swift in Sources */,
@@ -835,7 +835,6 @@
 				9F1A2D062316789B009CEB51 /* MathFormula.swift in Sources */,
 				9F1A442E2317BB830088A9D5 /* MathBrackets.swift in Sources */,
 				9F1A2D0B231685AF009CEB51 /* FloatingPoint+Extensions.swift in Sources */,
-				9F304D2A23196CD800CE4805 /* Double+RoundedToPlaces.swift in Sources */,
 				9F1A44312317D74A0088A9D5 /* Formatter+Extensions.swift in Sources */,
 				9F1A2CFD23166C34009CEB51 /* MathExpression.swift in Sources */,
 				9F1A2D0423167848009CEB51 /* MathOperator.swift in Sources */,
@@ -847,6 +846,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F21580E2319D5B200E5FF81 /* FactorialTransformationTests.swift in Sources */,
+				9F8056BE232C1A0300630BD4 /* Double+RoundedToPlaces.swift in Sources */,
 				9F21580A2319D25C00E5FF81 /* String+Random.swift in Sources */,
 				9F1A2CF023166BAF009CEB51 /* AdditionTests.swift in Sources */,
 				9FFC47DB2316D91800F237A4 /* Numeric+Random.swift in Sources */,
@@ -892,7 +892,6 @@
 				9FF96DA22321399200FC90CA /* MathFormula.swift in Sources */,
 				9FF96DA32321399200FC90CA /* MathBrackets.swift in Sources */,
 				9FF96DA42321399200FC90CA /* FloatingPoint+Extensions.swift in Sources */,
-				9FF96DA52321399200FC90CA /* Double+RoundedToPlaces.swift in Sources */,
 				9FF96DA62321399200FC90CA /* Formatter+Extensions.swift in Sources */,
 				9FF96DA72321399200FC90CA /* MathExpression.swift in Sources */,
 				9FF96DA82321399200FC90CA /* MathOperator.swift in Sources */,
@@ -906,7 +905,6 @@
 				9FF96DB423214AAF00FC90CA /* MathFormula.swift in Sources */,
 				9FF96DB523214AAF00FC90CA /* MathBrackets.swift in Sources */,
 				9FF96DB623214AAF00FC90CA /* FloatingPoint+Extensions.swift in Sources */,
-				9FF96DB723214AAF00FC90CA /* Double+RoundedToPlaces.swift in Sources */,
 				9FF96DB823214AAF00FC90CA /* Formatter+Extensions.swift in Sources */,
 				9FF96DB923214AAF00FC90CA /* MathExpression.swift in Sources */,
 				9FF96DBA23214AAF00FC90CA /* MathOperator.swift in Sources */,

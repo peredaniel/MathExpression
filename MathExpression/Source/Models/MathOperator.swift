@@ -2,23 +2,21 @@
 
 import Foundation
 
+enum AdditiveOperator: String, CaseIterable {
+    case sum = "+"
+    case subtraction = "-"
+
+    var character: Character {
+        return Character(rawValue)
+    }
+}
+
 enum MathOperator: String {
     case negative = "_"
     case product = "*"
     case division = "/"
     case sum = "+"
     case subtraction = "-"
-
-    var neutralElement: String {
-        switch self {
-        case .sum, .subtraction, .negative: return "0"
-        case .product, .division: return "1"
-        }
-    }
-
-    static var additiveOperators: [MathOperator] {
-        return [.sum, .subtraction]
-    }
 
     static var evaluationCases: [MathOperator] {
         return [.sum, .subtraction, .product, .division, .negative]
