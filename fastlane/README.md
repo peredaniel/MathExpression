@@ -15,6 +15,11 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
+### deploy_pod
+```
+fastlane deploy_pod
+```
+Deploys the podspec file to Trunk
 ### build_framework
 ```
 fastlane build_framework

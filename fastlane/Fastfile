@@ -3,6 +3,19 @@ default_platform(:ios)
 ####################################################################################################
 ####################################################################################################
 
+###################
+# Deployment lane #
+###################
+
+desc "Deploys the podspec file to Trunk"
+lane :deploy_pod do
+	pod_push(
+		path: "MathExpression.podspec",
+		verbose: false,
+		swift_version: "5.0"
+	)
+end
+
 ##############
 # Test lanes #
 ##############
