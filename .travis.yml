@@ -33,7 +33,12 @@ jobs:
 
   - stage: deploy
       name: "Deploy pod to Trunk repository"
-      script: bundle exec fastlane deploy_pod
+      script: skip
+      deploy:
+        provider: script
+        script: bundle exec fastlane deploy_pod
+        on:
+          tags: true
 
 stages:
 - name: build
