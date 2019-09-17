@@ -8,6 +8,7 @@ default_platform(:ios)
 ###################
 
 desc "Deploys the podspec file to Trunk"
+desc "Usage example: fastlane deploy_pod"
 lane :deploy_pod do
 	pod_push(
 		path: "MathExpression.podspec",
