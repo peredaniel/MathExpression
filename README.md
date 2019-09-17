@@ -4,8 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/peredaniel/MathExpression/badge.svg?branch=master)](https://coveralls.io/github/peredaniel/MathExpression?branch=master)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MathExpression.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/github/license/peredaniel/MathExpression)](https://github.com/peredaniel/MathExpression/blob/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/Japx.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
+[![Platform](https://img.shields.io/cocoapods/p/MathExpression.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
 [![Language: Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg)](https://swift.org/)
 [![Language: Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg)](https://swift.org/)
 
@@ -33,7 +34,7 @@ To use CocoaPods, first make sure you have installed it and updated it to the la
 1. Add MathExpression to your `Podfile`:
 
 ```ruby
-pod 'MathExpression', '~>1.1.0'
+pod 'MathExpression', '~>1.2.0'
 ```
 
 2. Update your pod sources and install the new pod by executing the following command in command line:
@@ -49,7 +50,7 @@ To use Carthage, first make sure you have installed it and updated it to the lat
 1. Add MathExpression to your `Cartfile`:
 
 ```ruby
-github "peredaniel/MathExpression" ~> 1.1.0
+github "peredaniel/MathExpression" ~> 1.2.0
 ```
 
 2. Install the new framework by running Carthage:
@@ -58,9 +59,17 @@ github "peredaniel/MathExpression" ~> 1.1.0
 $ carthage update
 ```
 
+### Using Swift Package Manager
+
+To install using Swift Package Manager, add this to the `dependencies` section in your `Package.swift` file:
+
+```swift
+.package(url: "https://github.com/peredaniel/MathExpression.git", .upToNextMinor(from: "1.2.0")),
+```
+
 ### Manual installation
 
-We encourage using either CocoaPods or Carthage to install your dependencies, but in case you can't use any of these dependency managers, you can install the framework manually as follows:
+We encourage using a dependency manager to install your dependencies, but in case you can't use any you may install the framework manually as follows:
 
 1. Clone or download this repository.
 2. Drag the folder `Source` contained within the `MathExpression` folder into your project.
@@ -89,6 +98,7 @@ There are several operators that are already built-in in the framework, and ther
 * **Subtraction**, with reserved character `-`.
 * **Product**, with reserved character `*`.
 * **Division**, with reserved character `/`.
+* **Negative**, with reserved character `_` (only used internally during the parsing process).
 
 We refer to these as *operators*, and we distinguish between *additive operators* (sum and subtraction) and *multiplicative operators* (product and division).
 
@@ -172,6 +182,23 @@ The project includes a `performance` version of every unit test (excep for the `
 * A mathematical expression involving a concatenation of 501 expressions of the type `(a + b * c)`, where `c` is another expression of the type `(a + b * c)`, and so on. Taking 3 expressions, the final result would be `(a + b * (c + d * (e + f * (g + h))))`. Result is around 1.1 seconds in average to validate and evaluate.
 * A randomly generated mathematical expression constructed combining 500 random expressions from a pre-selected subset of the `Formulae` enum. Result is around 5 seconds in average to validate and evaluate.
 
+## Example app
+
+This repository includes an example app with a couple of use cases for this framework.
+
+### Calculator
+
+The first (and more obvious) use case for this framework is a calculator app, similar to the iOS or macOS calculator app in non-scientific display. The input is restricted to the operations already built-in in the framework (namely sum, subtraction, product and division), with the option to add parentheses and change the sign of the input. Additionally, the calculator displays the complete operation on top of the current input whenever a new operation or the `=` button is tapped.
+
+### Evaluator
+
+The second (obvious) use case for this framework is to evaluate an expression given by a `String`. The `Evaluator` enables us to do so. The input is provided using a couple of `UITextField`. The first one is the expression under evaluation, whilst the second enables to select a `transformation` to use in the evaluation process. The `transformation` is selected using a `UIPickerView` from the following set:
+* **Default**: tries to convert the `String` into a `Double`, returns `0.0` if not possible.
+* **Count**: returns the value of the `count` property of the `String` instance.
+* **Factorial**: evaluates expressions of the type `n!` as the factorial of `n` (that is: `n * (n - 1) * (n - 2) * ... * 2 * 1`, where `n` must be a non-negative **integer**. If `n < 1`, then `n!` returns `1`. If `n` is not an integer, then `n!` returns `0.0`. Be mindful when using this transformation: the factorial function has a nearly exponential growth and can easily overflow if used on large numbers.
+
+Further transformations may be added in future releases.
+
 ## Contributing
 
 This framework has been developed to cover the needs of another project in which we needed to evaluate a mathematical expression with non-numerical identifiers that fetch a model in CoreData. Therefore, we stopped once the needs were covered (adding appropriate tests and documentation). If you have any idea on how to improve it, we'll be happy to hear/read it. Just open a new issue to discuss it further, or open a pull request with your idea.
@@ -180,23 +207,22 @@ This framework has been developed to cover the needs of another project in which
 
 We follow the [Ray Wenderlich Swift Style Guide](https://github.com/raywenderlich/swift-style-guide), except for the [Spacing](https://github.com/raywenderlich/swift-style-guide#spacing) section: we use **4 spaces** instead of 2 to indent.
 
-To enforce the guidelines in the aforementioned code style guide, we use [SwiftFormat](https://github.com/nicklockwood/SwiftFormat). The set of rules is checked into this repository in the file `.swiftformat`. Before pushing any code, please follow the instructions in [How do I install it?](https://github.com/nicklockwood/SwiftFormat/#how-do-i-install-it) to install `SwiftFormat` and execute the following command in the root directory of the project:
+To enforce the guidelines in the aforementioned code style guide, we use [SwiftFormat](https://github.com/nicklockwood/SwiftFormat). The set of rules is checked into this repository in the file `.swiftformat`. Before pushing any code, please follow the instructions in [How do I install it?](https://github.com/nicklockwood/SwiftFormat/#how-do-i-install-it) of the aforementioned repository to install `SwiftFormat` and execute the following command in the root directory of the project:
 ```
 swiftformat . --config .swiftformat --swiftversion 5.0
 ```
 
 This will re-format every `*.swift` file inside the project folder to follow the guidelines.
 
-### Continuous Integration
+### Continuous Integration and Deployment
 
-We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`.
+We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
 
 ### Roadmap
 
 Although the current implementation does provide what we need, there are several ideas in our minds that we are willing to implement when time allows it. In particular:
 * Add a `priority` property to operators (public, non-modifiable) and transformations (modifiable), so that they are executed in the order that we really need.
 * Add some additional mathematical operators, such as `^` (for exponentiation), and maybe some functions such as trigonometric functions.
-* Add support for [Swift Package Manager](https://swift.org/package-manager/).
 
 ## Similar frameworks
 
