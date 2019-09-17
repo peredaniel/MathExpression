@@ -38,4 +38,11 @@ stages:
 - name: test
   if: (type = pull_request OR type = push) AND branch = master
 
+deploy:
+  provider: script
+  script: bundle exec fastlane deploy_pod
+  on:
+    branch: master
+    tags: true
+
 after_script: Scripts/telegram_notification.sh
