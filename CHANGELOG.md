@@ -1,3 +1,9 @@
+### 1.2.0
+
+* Added support for [Swift Package Manager](https://swift.org/package-manager/).
+* Added example app.
+* Improved documentation.
+
 ### 1.1.1
 
 * Fixed issue in operation priority.
@@ -15,6 +21,6 @@
 * Improved parentheses decomposition algorithm (evaluation between 15% and 85% faster).
 * Added stress performance tests.
 
-### 1.0
+### 1.0.0
 
 Initial Stable Release - Xcode 10.0+, Swift 4.2+, iOS 10+
