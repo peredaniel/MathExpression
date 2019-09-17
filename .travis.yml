@@ -31,23 +31,20 @@ jobs:
     script: bundle exec fastlane ios test_performance device:'iPhone 8'
     after_success: bundle exec slather
 
-  - stage: deploy
-      name: "Deploy pod to Trunk repository"
-      script: skip
-      deploy:
-        provider: script
-        script: bundle exec fastlane deploy_pod
-        on:
-          tags: true
-
 stages:
 - name: build
-  if: (type = pull_request OR type = push) AND branch = master AND tag IS blank
+  if: (type = pull_request OR type = push) AND branch = master
 
 - name: test
-  if: (type = pull_request OR type = push) AND branch = master AND tag IS blank
+  if: (type = pull_request OR type = push) AND branch = master
 
 - name: deploy
   if: type = push AND tag IS present
+
+deploy:
+  provider: script
+  script: bundle exec fastlane deploy_pod
+  on:
+    tags: true
 
 after_script: Scripts/telegram_notification.sh
