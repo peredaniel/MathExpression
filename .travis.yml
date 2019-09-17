@@ -33,19 +33,14 @@ jobs:
 
   - stage: deploy
       name: "Deploy pod to Trunk repository"
-      script: skip
-      deploy:
-        provider: script
-        script: bundle exec fastlane deploy_pod
-        on:
-          tags: true
+      script: bundle exec fastlane deploy_pod
 
 stages:
 - name: build
-  if: (type = pull_request OR type = push) AND branch = master
+  if: (type = pull_request OR type = push) AND branch = master AND tag IS blank
 
 - name: test
-  if: (type = pull_request OR type = push) AND branch = master
+  if: (type = pull_request OR type = push) AND branch = master AND tag IS blank
 
 - name: deploy
   if: type = push AND tag IS present
