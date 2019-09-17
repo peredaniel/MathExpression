@@ -209,10 +209,10 @@ We follow the [Ray Wenderlich Swift Style Guide](https://github.com/raywenderlic
 
 To enforce the guidelines in the aforementioned code style guide, we use [SwiftFormat](https://github.com/nicklockwood/SwiftFormat). The set of rules is checked into this repository in the file `.swiftformat`. Before pushing any code, please follow the instructions in [How do I install it?](https://github.com/nicklockwood/SwiftFormat/#how-do-i-install-it) of the aforementioned repository to install `SwiftFormat` and execute the following command in the root directory of the project:
 ```
-swiftformat . --config .swiftformat --swiftversion 5.0
+swiftformat . --config .swiftformat --swiftversion 5.0 --exclude Package.swift
 ```
 
-This will re-format every `*.swift` file inside the project folder to follow the guidelines.
+This will re-format every `*.swift` file inside the project folder to follow the guidelines, except the `Package.swift` manifest file.
 
 ### Continuous Integration and Deployment
 
