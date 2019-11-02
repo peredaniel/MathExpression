@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode10.3
+osx_image: xcode11.2
 
 cache: bundler
 
@@ -18,8 +18,12 @@ jobs:
     script: bundle exec fastlane build_framework platform:'macOS'
 
   - stage: build
-    name: "Building example app"
+    name: "Building example app for iOS 12.4"
     script: bundle exec fastlane build_example_app ios_version:'12.4'
+
+  - stage: build
+    name: "Building example app"
+    script: bundle exec fastlane build_example_app ios_version:'13.2'
 
   - stage: test
     name: "Running tests"
@@ -41,6 +45,9 @@ stages:
 
 - name: test
   if: (type = pull_request OR type = push) AND branch = master
+
+- name: coverage
+  if: type = push AND branch = master
 
 - name: deploy_pod
   if: type = push AND tag IS present
