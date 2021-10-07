@@ -20,63 +20,63 @@ class ExponentialTransformationTests: XCTestCase {
         let splitString = string.split(separator: "^").map { String($0) }
         guard splitString.count == 2,
             let base = try? MathExpression(splitString.first ?? ""),
-            let exponent = try? MathExpression(splitString.last ?? "") else { return 0.0 }
+            let exponent = try? MathExpression(splitString.last ?? "") else { return .zero }
         return pow(base.evaluate(), exponent.evaluate())
     }
 
     // MARK: - Satisfied identities
 
-    func testSimpleAdditionOfExponentials() {
+    func testSimpleAdditionOfExponentials() throws {
         let a = Int16.random(in: 0...100)
         let b = Int16.random(in: 1...4)
         let c = Int16.random(in: 0...8)
         let d = Int16.random(in: 1...15)
 
-        let expression = try! MathExpression("(\(a) ^ \(b)) + (\(c) ^ \(d))", transformation: transformation)
+        let expression = try MathExpression("(\(a) ^ \(b)) + (\(c) ^ \(d))", transformation: transformation)
         let expectedResult = pow(Double(a), Double(b)) + pow(Double(c), Double(d))
         XCTAssertEqual(expression.evaluate(), expectedResult)
     }
 
-    func testAdditionOfExponents() {
+    func testAdditionOfExponents() throws {
         let a = Int16.random(in: 0...10)
         let b = Int16.random(in: 1...7)
         let c = Int16.random(in: 1...7)
 
-        let expression = try! MathExpression("(\(a)^\(b)) * (\(a)^\(c))", transformation: transformation)
-        let expandedExpression = try! MathExpression("\(a) ^ (\(b) + \(c))", transformation: transformation)
+        let expression = try MathExpression("(\(a)^\(b)) * (\(a)^\(c))", transformation: transformation)
+        let expandedExpression = try MathExpression("\(a) ^ (\(b) + \(c))", transformation: transformation)
         let expectedResult = pow(Double(a), Double(b) + Double(c))
         XCTAssertEqual(expression.evaluate(), expandedExpression.evaluate())
         XCTAssertEqual(expression.evaluate(), expectedResult)
     }
 
-    func testAdditionOfBases() {
+    func testAdditionOfBases() throws {
         let a = Int16.random(in: 0...50)
         let b = Int16.random(in: 0...50)
         let c = Int16.random(in: 1...5)
 
-        let expression = try! MathExpression("(\(a) + \(b)) ^ \(c)", transformation: transformation)
+        let expression = try MathExpression("(\(a) + \(b)) ^ \(c)", transformation: transformation)
         let expectedResult = pow(Double(a) + Double(b), Double(c))
         XCTAssertEqual(expression.evaluate(), expectedResult)
     }
 
-    func testSimpleProductOfBasesExponentials() {
+    func testSimpleProductOfBasesExponentials() throws {
         let a = Int16.random(in: 0...50)
         let b = Int16.random(in: 1...5)
         let c = Int16.random(in: 0...10)
         let d = Int16.random(in: 1...8)
 
-        let expression = try! MathExpression("(\(a)^\(b)) * (\(c)^\(d))", transformation: transformation)
+        let expression = try MathExpression("(\(a)^\(b)) * (\(c)^\(d))", transformation: transformation)
         let expectedResult = pow(Double(a), Double(b)) * pow(Double(c), Double(d))
         XCTAssertEqual(expression.evaluate(), expectedResult)
     }
 
-    func testExponentialOfExponential() {
+    func testExponentialOfExponential() throws {
         let a = Int16.random(in: 0...10)
         let b = Int16.random(in: 0...7)
         let c = Int16.random(in: 1...7)
 
-        let expression = try! MathExpression("(\(a) ^ \(b)) ^ \(c)", transformation: transformation)
-        let expandedExpression = try! MathExpression("\(a) ^ (\(b) * \(c))", transformation: transformation)
+        let expression = try MathExpression("(\(a) ^ \(b)) ^ \(c)", transformation: transformation)
+        let expandedExpression = try MathExpression("\(a) ^ (\(b) * \(c))", transformation: transformation)
         let expectedResult = pow(pow(Double(a), Double(b)), Double(c))
         XCTAssertEqual(expression.evaluate(), expandedExpression.evaluate())
         XCTAssertEqual(expression.evaluate(), expectedResult)
@@ -84,21 +84,21 @@ class ExponentialTransformationTests: XCTestCase {
 
     // MARK: - Non-satisfied idendities
 
-    func testNegativeBaseWithEvenExponentGivesWrongResult() {
+    func testNegativeBaseWithEvenExponentGivesWrongResult() throws {
         let a = Int16.random(in: -20...0) - 1
         let b = Int16.randomEven(in: 1...6)
 
-        let expression = try! MathExpression("\(a)^\(b)", transformation: transformation)
+        let expression = try MathExpression("\(a)^\(b)", transformation: transformation)
         let expectedResult = pow(Double(a), Double(b))
         XCTAssertNotEqual(expression.evaluate(), expectedResult)
     }
 
-    func testNegativeExponentGivesWrongResult() {
+    func testNegativeExponentGivesWrongResult() throws {
         let a = Int16.random(in: 0...20)
         let b = Int16.random(in: 1...6)
 
-        let expression = try! MathExpression("\(a)^(-\(b))", transformation: transformation)
-        let expandedExpression = try! MathExpression("1 / (\(a)^\(b))", transformation: transformation)
+        let expression = try MathExpression("\(a)^(-\(b))", transformation: transformation)
+        let expandedExpression = try MathExpression("1 / (\(a)^\(b))", transformation: transformation)
         let expectedResult = Double(1) / pow(Double(a), Double(b))
         XCTAssertNotEqual(expression.evaluate(), expandedExpression.evaluate())
         XCTAssertNotEqual(expression.evaluate(), expectedResult)
