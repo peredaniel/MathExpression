@@ -25,7 +25,9 @@ extension MathExpressionViewModel {
             let result = Formatter.mathExpression.string(from: NSNumber(value: mathExpression.evaluate())) ?? ""
             delegate?.didEvaluateExpression(.success(result))
         } catch {
-            guard let error = error as? MathExpression.ValidationError else { fatalError() }
+            guard let error = error as? MathExpression.ValidationError else {
+                fatalError("[MathExpressionViewModel] Expression \(expression) returned unknown error during validation!")
+            }
             let calculatorError: ValidationError
             switch error {
             case .emptyExpression:

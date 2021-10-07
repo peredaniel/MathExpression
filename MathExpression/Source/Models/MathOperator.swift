@@ -74,7 +74,7 @@ extension MathOperator {
         case .subtraction: return args.subtract()
         case .product: return args.multiply()
         case .division: return args.divide()
-        case .negative: return args.first?.negative ?? 0.0
+        case .negative: return args.first?.negative ?? .zero
         }
     }
 }
@@ -83,17 +83,17 @@ extension MathOperator {
 
 private extension Array where Element == Double {
     func sum() -> Element {
-        guard let last = last else { return 0.0 }
+        guard let last = last else { return .zero }
         return last + dropLast().sum()
     }
 
     func subtract() -> Double {
-        guard let first = first else { return 0.0 }
+        guard let first = first else { return .zero }
         return first + reversed().dropLast().map { $0.negative }.sum()
     }
 
     func multiply() -> Double {
-        guard !contains(0.0) else { return 0.0 }
+        guard !contains(.zero) else { return .zero }
         guard let last = last else { return 1.0 }
         return last * dropLast().multiply()
     }

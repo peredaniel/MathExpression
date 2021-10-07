@@ -2,7 +2,7 @@
 
 extension Int16 {
     static func random() -> Int16 {
-        return Int16.random(in: Int16.min...Int16.max)
+        Int16.random(in: Int16.min...Int16.max)
     }
 
     static func randomEven(in range: ClosedRange<Int16>) -> Int16 {
@@ -18,11 +18,11 @@ extension Int16 {
 
     static func randomOdd(in range: ClosedRange<Int16>) -> Int16 {
         let evenNumber = randomEven(in: range)
-        return evenNumber > 0 ? evenNumber - 1 : evenNumber + 1
+        return evenNumber > .zero ? evenNumber - 1 : evenNumber + 1
     }
 
     static func randomExcludingZero() -> Int16 {
-        return randomExcluding(0)
+        randomExcluding(.zero)
     }
 
     static func randomExcluding(_ excluded: Int16) -> Int16 {
