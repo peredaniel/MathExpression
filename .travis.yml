@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode11.3
+osx_image: xcode12.5
 
 cache: bundler
 
@@ -19,7 +19,7 @@ jobs:
 
   - stage: build
     name: "Building example app"
-    script: bundle exec fastlane build_example_app ios_version:'13.2'
+    script: bundle exec fastlane build_example_app ios_version:'14.5'
 
   - stage: test
     name: "Running tests"
