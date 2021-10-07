@@ -16,7 +16,7 @@ public struct MathExpression {
 
     public init(
         _ string: String,
-        transformation: ((String) -> Double)? = nil
+        transformation: @escaping (String) -> Double = { Double($0) ?? .zero }
     ) throws {
         formula = try MathFormula(string, transformation: transformation)
     }
@@ -50,6 +50,6 @@ public struct MathExpression {
 
 private extension Array where Element == MathExpression {
     func evaluate() -> [Double] {
-        return map { $0.evaluate() }
+        map { $0.evaluate() }
     }
 }

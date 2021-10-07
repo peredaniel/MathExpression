@@ -14,10 +14,10 @@ struct MathFormula {
 
     init(
         _ string: String,
-        transformation: ((String) -> Double)? = nil
+        transformation: @escaping (String) -> Double = { Double($0) ?? .zero }
     ) throws {
         self.string = string.trimmingWhiteSpacesAndDoubleMathOperators()
-        self.transformation = transformation ?? { Double($0) ?? 0.0 }
+        self.transformation = transformation
         try validate()
     }
 
@@ -34,7 +34,7 @@ struct MathFormula {
 
 extension MathFormula {
     var asDouble: Double? {
-        return Double(string)
+        Double(string)
     }
 
     func evaluationState(validating: Bool = false) -> EvaluationState {
@@ -71,7 +71,7 @@ extension MathFormula {
 
 extension MathFormula {
     func applyTransformation() -> Double {
-        return transformation(string)
+        transformation(string)
     }
 
     func decompose(with mathOperator: MathOperator) -> [MathFormula] {
@@ -87,7 +87,7 @@ extension MathFormula {
     }
 
     func dropingInitialValue() -> MathFormula {
-        return MathFormula(
+        MathFormula(
             validString: String(string.dropFirst()),
             transformation: transformation
         )
@@ -120,15 +120,15 @@ extension MathFormula {
 
 private extension MathFormula {
     func containsBracket(_ bracket: MathBrackets) -> Bool {
-        return string.contains(bracket.opening) || string.contains(bracket.closing)
+        string.contains(bracket.opening) || string.contains(bracket.closing)
     }
 
     func getString(between bracket: MathBrackets) throws -> String {
-        return try String(string.map { $0 }.characters(between: bracket))
+        try String(string.map { $0 }.characters(between: bracket))
     }
 
     func starts(with additiveOperator: AdditiveOperator) -> Bool {
-        return string.first == additiveOperator.character
+        string.first == additiveOperator.character
     }
 
     func validate() throws {
