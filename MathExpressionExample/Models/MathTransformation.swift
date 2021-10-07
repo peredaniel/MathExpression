@@ -11,11 +11,11 @@ enum MathTransformation: CaseIterable {
             return { Double($0.count) }
         case .factorial:
             return {
-                guard $0.last == "!", let number = Int($0.dropLast()) else { return 0.0 }
+                guard $0.last == "!", let number = Int($0.dropLast()) else { return .zero }
                 return Double(number.factorial())
             }
         case .numericValueOrZero:
-            return { Double($0) ?? 0.0 }
+            return { Double($0) ?? .zero }
         }
     }
 

@@ -27,6 +27,7 @@ class EvaluatorViewController: UIViewController {
         expressionTextField.text = nil
         transformationTextField.inputView = pickerView
         transformationTextField.text = viewModel.transformation.name
+        resultLabel.text = nil
     }
 }
 
@@ -68,7 +69,7 @@ extension EvaluatorViewController: UIPickerViewDataSource {
         _: UIPickerView,
         numberOfRowsInComponent _: Int
     ) -> Int {
-        return MathTransformation.allCases.count
+        MathTransformation.allCases.count
     }
 }
 
@@ -90,7 +91,7 @@ extension EvaluatorViewController: UIPickerViewDelegate {
         titleForRow row: Int,
         forComponent _: Int
     ) -> String? {
-        return MathTransformation.allCases[row].name
+        MathTransformation.allCases[row].name
     }
 }
 
@@ -108,15 +109,15 @@ extension EvaluatorViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_: UITextField) -> Bool {
-        return true
+        true
     }
 
     func textFieldShouldClear(_: UITextField) -> Bool {
-        return true
+        true
     }
 
     func textFieldShouldReturn(_: UITextField) -> Bool {
-        return true
+        true
     }
 }
 
