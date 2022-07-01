@@ -7,7 +7,6 @@
 [![Swift Package Manager compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/github/license/peredaniel/MathExpression)](https://github.com/peredaniel/MathExpression/blob/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/MathExpression.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
-[![Language: Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg)](https://swift.org/)
 [![Language: Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg)](https://swift.org/)
 
 MathExpression is a Swift library that provides an API to parse and evaluate arithmetic mathematical expressions given by a `String` instance. It is compatible with iOS, tvOS and macOS.
@@ -18,10 +17,11 @@ Furthermore, the initializer admits an additional optional parameter called `tra
 
 | Version         | Requirements                                                     |
 |:----------------|:-----------------------------------------------------------------|
-| 1.1.0 or higher | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+, tvOS 10.0+, macOS 10.10+ |
+| 1.3.0 or higher | Xcode 13.0+<br>Swift 5.0+<br>iOS 12.0+, tvOS 12.0+, macOS 10.14+ |
+| 1.1.0 - 1.2.0   | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+, tvOS 10.0+, macOS 10.10+ |
 | 1.0.0 and 1.0.1 | Xcode 10.0+<br>Swift 4.2+<br>iOS 10.0+                           |
 
-The framework is written using **Swift 5.0**, but there is no code specific to that Swift version. Therefore, it should work with projects using Swift 4.2.
+Starting on version 1.3.0 we bumped the IDE, Swift and platforms requirements to the above. Note that although it's specified Xcode 13.0 as a minimum, there is nothing specific to that Xcode version being used. Therefore, the package should be compatible in projects which are unable to use Xcode 13.
 
 ## Installation
 
@@ -34,7 +34,7 @@ To use CocoaPods, first make sure you have installed it and updated it to the la
 1. Add MathExpression to your `Podfile`:
 
 ```ruby
-pod 'MathExpression', '~>1.2.0'
+pod 'MathExpression', '~>1.3.0'
 ```
 
 2. Update your pod sources and install the new pod by executing the following command in command line:
@@ -50,7 +50,7 @@ To use Carthage, first make sure you have installed it and updated it to the lat
 1. Add MathExpression to your `Cartfile`:
 
 ```ruby
-github "peredaniel/MathExpression" ~> 1.2.0
+github "peredaniel/MathExpression" ~> 1.3.0
 ```
 
 2. Install the new framework by running Carthage:
@@ -64,7 +64,7 @@ $ carthage update
 To install using Swift Package Manager, add this to the `dependencies` section in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/peredaniel/MathExpression.git", .upToNextMinor(from: "1.2.0")),
+.package(url: "https://github.com/peredaniel/MathExpression.git", .upToNextMinor(from: "1.3.0")),
 ```
 
 ### Manual installation
@@ -223,6 +223,11 @@ We use [Travis CI](https://travis-ci.com/) as our continuous integration solutio
 Although the current implementation does provide what we need, there are several ideas in our minds that we are willing to implement when time allows it. In particular:
 * Add a `priority` property to operators (public, non-modifiable) and transformations (modifiable), so that they are executed in the order that we really need.
 * Add some additional mathematical operators, such as `^` (for exponentiation), and maybe some functions such as trigonometric functions.
+
+## Acknowledgments
+
+* @hiangeel for pointing out improvements in the installation documentation.
+* @gbreen12 for taking the time to fork and open a PR to improve the package.
 
 ## Similar frameworks
 

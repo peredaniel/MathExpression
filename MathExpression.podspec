@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'MathExpression'
-  spec.version      = '1.2.0'
+  spec.version      = '1.3.0'
   spec.summary      = 'Framework to parse and evaluate arithmetic mathematical expressions given by a String'
   spec.description  = 'This framework provides an algorithm and an API to easily evaluate arithmetic mathematical expressions given by a String. In addition to the basic arithmetic operators (addition, subtraction, product and division), we can pass in a transformation (in the form of a block) to add flexibility in the expressions provided.'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -9,9 +9,9 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => 'https://github.com/peredaniel/MathExpression.git', :tag => spec.version }
 
   spec.platform = :ios, :tvos, :osx
-  spec.ios.deployment_target  = '10.0'
-  spec.tvos.deployment_target  = '10.0'
-  spec.osx.deployment_target = '10.10'
+  spec.ios.deployment_target  = '12.0'
+  spec.tvos.deployment_target  = '12.0'
+  spec.osx.deployment_target = '10.14'
 
   spec.swift_version = "5.0"
 
