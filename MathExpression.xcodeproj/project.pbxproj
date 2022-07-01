@@ -80,6 +80,8 @@
 		9FF96DB823214AAF00FC90CA /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A44302317D74A0088A9D5 /* Formatter+Extensions.swift */; };
 		9FF96DB923214AAF00FC90CA /* MathExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2CFC23166C34009CEB51 /* MathExpression.swift */; };
 		9FF96DBA23214AAF00FC90CA /* MathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A2D0323167848009CEB51 /* MathOperator.swift */; };
+		9FFA61A1286EFCF200CDEB7C /* XCTestCase+AssertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA61A0286EFCF200CDEB7C /* XCTestCase+AssertError.swift */; };
+		9FFA61A2286EFCF200CDEB7C /* XCTestCase+AssertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA61A0286EFCF200CDEB7C /* XCTestCase+AssertError.swift */; };
 		9FFC47D12316C56400F237A4 /* AdditionAndSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D02316C56400F237A4 /* AdditionAndSubtractionTests.swift */; };
 		9FFC47D32316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D22316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift */; };
 		9FFC47D92316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC47D82316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift */; };
@@ -185,6 +187,7 @@
 		9FA74ACA2327F76A0049E401 /* MathExpressionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathExpressionViewModel.swift; sourceTree = "<group>"; };
 		9FF96DAE2321399200FC90CA /* MathExpression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MathExpression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF96DC023214AAF00FC90CA /* MathExpression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MathExpression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FFA61A0286EFCF200CDEB7C /* XCTestCase+AssertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AssertError.swift"; sourceTree = "<group>"; };
 		9FFC47D02316C56400F237A4 /* AdditionAndSubtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionAndSubtractionTests.swift; sourceTree = "<group>"; };
 		9FFC47D22316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbelianAdditiveGroupAxiomsTests.swift; sourceTree = "<group>"; };
 		9FFC47D82316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbelianMultiplicativeGroupAxiomTests.swift; sourceTree = "<group>"; };
@@ -466,6 +469,7 @@
 				9F304D2923196CD800CE4805 /* Double+RoundedToPlaces.swift */,
 				9FFC47DA2316D91800F237A4 /* Numeric+Random.swift */,
 				9F2158092319D25C00E5FF81 /* String+Random.swift */,
+				9FFA61A0286EFCF200CDEB7C /* XCTestCase+AssertError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -812,6 +816,7 @@
 				9F12B9EF231FDFFE004B079A /* Operation.swift in Sources */,
 				9F153DD2231E87D6005A6966 /* AbelianAdditiveGroupAxiomsPerformanceTests.swift in Sources */,
 				9F153DCD231E87D6005A6966 /* ProductPerformanceTests.swift in Sources */,
+				9FFA61A2286EFCF200CDEB7C /* XCTestCase+AssertError.swift in Sources */,
 				9F153DD7231E87D6005A6966 /* CountTransformationPerformanceTests.swift in Sources */,
 				9F153DD4231E87D6005A6966 /* AdditionPerformanceTests.swift in Sources */,
 				9F153DCB231E87D6005A6966 /* FieldAxiomPerformanceTests.swift in Sources */,
@@ -852,6 +857,7 @@
 				9FFC47DB2316D91800F237A4 /* Numeric+Random.swift in Sources */,
 				9F1A2D022316718E009CEB51 /* Operation.swift in Sources */,
 				9FFC47D32316C58100F237A4 /* AbelianAdditiveGroupAxiomsTests.swift in Sources */,
+				9FFA61A1286EFCF200CDEB7C /* XCTestCase+AssertError.swift in Sources */,
 				9F2158082319D1CC00E5FF81 /* CountTransformationTests.swift in Sources */,
 				9F304D2E23197A8300CE4805 /* CombinedOperationsTest.swift in Sources */,
 				9FFC47D92316D33700F237A4 /* AbelianMultiplicativeGroupAxiomTests.swift in Sources */,
