@@ -7,7 +7,7 @@ enum AdditiveOperator: String, CaseIterable {
     case subtraction = "-"
 
     var character: Character {
-        return Character(rawValue)
+        Character(rawValue)
     }
 }
 
@@ -19,15 +19,15 @@ enum MathOperator: String {
     case subtraction = "-"
 
     static var evaluationCases: [MathOperator] {
-        return [.sum, .subtraction, .product, .division, .negative]
+        [.sum, .subtraction, .product, .division, .negative]
     }
 
     static var multiplicativeOperators: [MathOperator] {
-        return [.product, .division]
+        [.product, .division]
     }
 
     static var validationCases: [MathOperator] {
-        return [.product, .division, .sum, .subtraction]
+        [.product, .division, .sum, .subtraction]
     }
 }
 
@@ -35,7 +35,7 @@ enum MathOperator: String {
 
 extension MathOperator {
     static var validConsecutiveOperators: [String: String] {
-        return [
+        [
             MathOperator.sum.rawValue + MathOperator.subtraction.rawValue: MathOperator.subtraction.rawValue,
             MathOperator.subtraction.rawValue + MathOperator.sum.rawValue: MathOperator.subtraction.rawValue,
             MathOperator.sum.rawValue + MathOperator.sum.rawValue: MathOperator.sum.rawValue,
@@ -44,7 +44,7 @@ extension MathOperator {
     }
 
     static var validConsecutiveOperatorsDuringEvaluation: [String: String] {
-        return [
+        [
             MathOperator.negative.rawValue + MathOperator.sum.rawValue: MathOperator.negative.rawValue,
             MathOperator.negative.rawValue + MathOperator.subtraction.rawValue: MathOperator.sum.rawValue,
             MathOperator.sum.rawValue + MathOperator.subtraction.rawValue: MathOperator.sum.rawValue + MathOperator.negative.rawValue,
@@ -54,8 +54,14 @@ extension MathOperator {
     }
 
     static var invalidConsecutiveOperators: [String] {
-        return [
+        [
+            MathOperator.sum.rawValue + MathOperator.product.rawValue,
+            MathOperator.sum.rawValue + MathOperator.division.rawValue,
+            MathOperator.subtraction.rawValue + MathOperator.product.rawValue,
+            MathOperator.subtraction.rawValue + MathOperator.division.rawValue,
             MathOperator.product.rawValue + MathOperator.product.rawValue,
+            MathOperator.product.rawValue + MathOperator.division.rawValue,
+            MathOperator.division.rawValue + MathOperator.product.rawValue,
             MathOperator.division.rawValue + MathOperator.division.rawValue
         ]
     }
@@ -65,7 +71,7 @@ extension MathOperator {
 
 extension MathOperator {
     var character: Character {
-        return Character(rawValue)
+        Character(rawValue)
     }
 
     func apply(to args: [Double]) -> Double {
