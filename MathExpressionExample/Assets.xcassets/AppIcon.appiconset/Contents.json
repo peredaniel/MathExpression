@@ -1,93 +1,116 @@
 {
   "images" : [
     {
+      "size" : "20x20",
       "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "20x20"
+      "filename" : "arithmetic-41.png",
+      "scale" : "2x"
     },
     {
+      "size" : "20x20",
       "idiom" : "iphone",
-      "scale" : "3x",
-      "size" : "20x20"
+      "filename" : "arithmetic-60.png",
+      "scale" : "3x"
     },
     {
+      "size" : "29x29",
       "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "29x29"
+      "filename" : "arithmetic-58.png",
+      "scale" : "2x"
     },
     {
+      "size" : "29x29",
       "idiom" : "iphone",
-      "scale" : "3x",
-      "size" : "29x29"
+      "filename" : "arithmetic-87.png",
+      "scale" : "3x"
     },
     {
+      "size" : "40x40",
       "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "40x40"
+      "filename" : "arithmetic-80.png",
+      "scale" : "2x"
     },
     {
+      "size" : "40x40",
       "idiom" : "iphone",
-      "scale" : "3x",
-      "size" : "40x40"
+      "filename" : "arithmetic-121.png",
+      "scale" : "3x"
     },
     {
+      "size" : "60x60",
       "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "60x60"
+      "filename" : "arithmetic-120.png",
+      "scale" : "2x"
     },
     {
+      "size" : "60x60",
       "idiom" : "iphone",
-      "scale" : "3x",
-      "size" : "60x60"
+      "filename" : "arithmetic-180.png",
+      "scale" : "3x"
     },
     {
+      "size" : "20x20",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "20x20"
+      "filename" : "arithmetic-20.png",
+      "scale" : "1x"
     },
     {
+      "size" : "20x20",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "20x20"
+      "filename" : "arithmetic-42.png",
+      "scale" : "2x"
     },
     {
+      "size" : "29x29",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "29x29"
+      "filename" : "arithmetic-29.png",
+      "scale" : "1x"
     },
     {
+      "size" : "29x29",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "29x29"
+      "filename" : "arithmetic-59.png",
+      "scale" : "2x"
     },
     {
+      "size" : "40x40",
       "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "40x40"
+      "filename" : "arithmetic-40.png",
+      "scale" : "1x"
     },
     {
+      "size" : "40x40",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "40x40"
+      "filename" : "arithmetic-81.png",
+      "scale" : "2x"
     },
     {
+      "size" : "76x76",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "76x76"
+      "filename" : "arithmetic-76.png",
+      "scale" : "1x"
     },
     {
+      "size" : "76x76",
       "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "83.5x83.5"
+      "filename" : "arithmetic-152.png",
+      "scale" : "2x"
     },
     {
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "arithmetic-167.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "scale" : "1x",
-      "size" : "1024x1024"
+      "filename" : "arithmetic-1024.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }
