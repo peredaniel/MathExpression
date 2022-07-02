@@ -1,4 +1,6 @@
-In this documentation we provide a step-by-step installation guide, with screenshots and further details than the [general documentation](../README.md), because no one starts app development by knowing how to do everyting!
+In this documentation we provide a step-by-step installation guide, with screenshots and further details than the [general documentation](../README.md). Because no one starts app development by knowing how to do everything!
+
+We don't include step-by-step guide for Carthage since most developers using this package manager (usually do already know how to solve issues. In case you encounter an issue with Carthage, please open an Issue here in GitHub and we'll take a look.
 
 ## Using Cocoapods
 
@@ -21,7 +23,7 @@ Maybe specifying a version. Then you execute `pod install --repo-update` on the 
 
 ## Swift Package Manager
 
-Since Xcode 11, Swift Package Manager is embedded into Xcode, so I strongly recommend using the Xcode interface to add packages. It's just a few steps:
+Since Xcode 11, Swift Package Manager is embedded into Xcode, so we strongly recommend using the Xcode interface to add packages. It's just a few steps:
 1. Open your project on Xcode.
 2. Open `File` in the top menu, then `Add Packages...`, and you'll see a screen like this:
 
@@ -52,7 +54,7 @@ Clone this repository into your hard-drive, or download it as a ZIP file and unc
 
 ![Captura de Pantalla 2022-03-30 a las 8 53 21](https://user-images.githubusercontent.com/40358007/160769769-581abf5a-9a80-4f66-bab7-c5278260cfeb.png)
 
-Make sure to check "Copy items if needed". I also recommend using "Create groups" instead of "Create folder references", but this is a personal choice. Your project structure should now look like this:
+Make sure to check "Copy items if needed". We also recommend using "Create groups" instead of "Create folder references", but this is a personal choice. Your project structure should now look like this:
 
 ![Captura de Pantalla 2022-03-30 a las 8 54 59](https://user-images.githubusercontent.com/40358007/160770022-08d22638-a1a0-41db-8090-6285f8a651ce.png)
 

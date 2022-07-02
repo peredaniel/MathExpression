@@ -225,8 +225,8 @@ Although the current implementation does provide what we need, there are several
 
 ## Acknowledgments
 
-* [https://github.com/hiangeel](@hiangeel) for pointing out improvements in the installation documentation.
-* [https://github.com/gbreen12](@gbreen12) for taking the time to fork and open a PR to improve the package.
+* [@hiangeel](https://github.com/hiangeel) for pointing out improvements in the installation documentation.
+* [@gbreen12](https://github.com/gbreen12) for taking the time to fork and open a PR to improve the package.
 
 ## Similar frameworks
 
