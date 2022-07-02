@@ -1,6 +1,5 @@
 # MathExpression framework
 
-[![Build Status](https://travis-ci.com/peredaniel/MathExpression.svg?branch=master)](https://travis-ci.com/peredaniel/MathExpression)
 [![Coverage Status](https://coveralls.io/repos/github/peredaniel/MathExpression/badge.svg?branch=master)](https://coveralls.io/github/peredaniel/MathExpression?branch=master)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/MathExpression.svg?style=flat)](http://cocoapods.org/pods/MathExpression)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -76,7 +75,7 @@ We encourage using a dependency manager to install your dependencies, but in cas
 
 ### Detailed instructions
 
-Still having problems with the installation? Take a look at our [step-by-step installation guide](Documentation/INSTALLATION_GUIDE.md)
+Still having problems with the installation? Take a look at our [step-by-step installation guide](Documentation/INSTALLATION_GUIDE.md)!
 
 ## Getting started
 
@@ -218,10 +217,6 @@ swiftformat . --config .swiftformat --swiftversion 5.0 --exclude Package.swift
 
 This will re-format every `*.swift` file inside the project folder to follow the guidelines, except the `Package.swift` manifest file.
 
-### Continuous Integration and Deployment
-
-We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
-
 ### Roadmap
 
 Although the current implementation does provide what we need, there are several ideas in our minds that we are willing to implement when time allows it. In particular:
@@ -230,8 +225,8 @@ Although the current implementation does provide what we need, there are several
 
 ## Acknowledgments
 
-* @hiangeel for pointing out improvements in the installation documentation.
-* @gbreen12 for taking the time to fork and open a PR to improve the package.
+* [https://github.com/hiangeel](@hiangeel) for pointing out improvements in the installation documentation.
+* [https://github.com/gbreen12](@gbreen12) for taking the time to fork and open a PR to improve the package.
 
 ## Similar frameworks
 
