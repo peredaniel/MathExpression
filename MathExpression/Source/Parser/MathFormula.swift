@@ -184,7 +184,7 @@ private extension String {
     func validateNoInvalidConsecutiveOperators() throws {
         for consecutiveOperators in MathOperator.invalidConsecutiveOperators {
             if let _ = range(of: consecutiveOperators) {
-                throw MathExpression.ValidationError.consecutiveMultiplicativeOperators(consecutiveOperators)
+                throw MathExpression.ValidationError.invalidConsecutiveOperators(consecutiveOperators)
             }
         }
     }

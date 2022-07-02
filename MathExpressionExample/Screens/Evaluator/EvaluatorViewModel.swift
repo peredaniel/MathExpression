@@ -1,30 +1,43 @@
-//  Copyright © 2019 Pedro Daniel Prieto Martínez. Distributed under MIT License.
+//  Copyright © 2022 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
-class EvaluatorViewModel {
-    private(set) weak var delegate: MathExpressionViewModelDelegate?
+import Foundation
+import MathExpression
 
-    private(set) var expression = "" {
-        didSet { delegate?.didUpdateExpression(self) }
+class EvaluatorViewModel: ObservableObject {
+    @Published var operationResult: String = ""
+    @Published var shouldShowError: Bool = false
+
+    @Published var expression: String = "" {
+        didSet { operationResult = "" }
     }
+    @Published var transformation: MathTransformation = .numericValueOrZero
 
-    private(set) var transformation: MathTransformation = .numericValueOrZero
+    private(set) var operationError: ValidationError?
 
-    init(delegate: MathExpressionViewModelDelegate) {
-        self.delegate = delegate
-    }
-}
-
-extension EvaluatorViewModel: MathExpressionViewModel {
-    func clearExpression() {
-        expression = ""
-    }
-
-    func updateExpression(_ newExpression: String?) {
-        guard let newExpression = newExpression else { return }
-        expression = newExpression
-    }
-
-    func updateTransformation(_ transformation: MathTransformation) {
-        self.transformation = transformation
+    func evaluateExpression() {
+        do {
+            let mathExpression = try MathExpression(expression, transformation: transformation.function)
+            let result = Formatter.mathExpression.string(from: NSNumber(value: mathExpression.evaluate())) ?? ""
+            operationResult = "The evaluation result is: \(result)"
+        } catch {
+            guard let error = error as? MathExpression.ValidationError else {
+                fatalError("[EvaluatorViewModel] Expression \(expression) returned unknown error during validation!")
+            }
+            switch error {
+            case .emptyExpression:
+                operationError = ValidationError("The expression is empty!")
+            case .misplacedBrackets:
+                operationError = ValidationError("There is a bracket out of place.")
+            case .unevenOpeningClosingBracketNumber:
+                operationError = ValidationError("The number of opening and closing brackets is uneven!")
+            case .invalidConsecutiveOperators(let value):
+                operationError = ValidationError("The combination of operators \(value) is not valid.")
+            case .startsWithNonSumOrSubtractionOperator(let value):
+                operationError = ValidationError("The expression can not start with the \(value) operator.")
+            case .endsWithOperator(let value):
+                operationError = ValidationError("The expression can not end with the \(value) operator.")
+            }
+            shouldShowError = true
+        }
     }
 }

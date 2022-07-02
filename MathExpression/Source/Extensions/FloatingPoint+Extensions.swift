@@ -10,6 +10,6 @@ extension FloatingPoint {
     }
 
     func avoidScientificNotation() -> String {
-        return Formatter.avoidScientificNotation.string(for: self) ?? ""
+        Formatter.avoidScientificNotation.string(for: self) ?? ""
     }
 }

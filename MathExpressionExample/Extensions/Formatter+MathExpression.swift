@@ -1,4 +1,4 @@
-//  Copyright © 2019 Pedro Daniel Prieto Martínez. Distributed under MIT License.
+//  Copyright © 2022 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
 import Foundation
 

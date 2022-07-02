@@ -68,3 +68,5 @@ fastlane/report.junit
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+.swiftpm/*
