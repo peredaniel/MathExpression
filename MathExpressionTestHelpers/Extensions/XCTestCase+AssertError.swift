@@ -1,10 +1,4 @@
-//
-//  XCTestCase+AssertError.swift
-//  MathExpression
-//
-//  Created by Pere Daniel Prieto on 1/7/22.
-//  Copyright © 2022 Pedro Daniel Prieto Martínez. All rights reserved.
-//
+//  Copyright © 2022 Pedro Daniel Prieto Martínez. Distributed under MIT License.
 
 import XCTest
 
