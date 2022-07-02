@@ -6,6 +6,8 @@
 * Improved errors thrown when validation fails due to invalid consecutive operators (on some cases the error was thrown but was of different type).
 * Improved tests implementation to check for correct error being thrown.
 * Removed Travis CI integration due to Open Source projects support being dropped.
+* Reimplemented example app using SwiftUI.
+* Improved documentation and added step-by-step installation guide.
 
 #### Breaking changes
 

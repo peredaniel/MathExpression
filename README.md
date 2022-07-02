@@ -74,6 +74,10 @@ We encourage using a dependency manager to install your dependencies, but in cas
 1. Clone or download this repository.
 2. Drag the folder `Source` contained within the `MathExpression` folder into your project.
 
+### Detailed instructions
+
+Still having problems with the installation? Take a look at our [step-by-step installation guide](Documentation/INSTALLATION_GUIDE.md)
+
 ## Getting started
 
 After installing the framework by any means of the above described, you can import the module by adding the following line in the "header" of any of your swift files:
